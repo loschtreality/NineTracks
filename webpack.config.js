@@ -10,6 +10,8 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
+      SessionUtils: 'frontend/util/session_api_util.js',
+      SessionActions: "frontend/actions/session_actions.jsx"
     },
     extensions: ['', '.js', '.jsx']
   },
