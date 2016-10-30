@@ -17,7 +17,7 @@ and sufficient CSS styling:
 
 - [x] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Playbar which follows user navigation
+- [ ] Play Bar which follows user navigation
 - [ ] Playlists with Pictures
 - [ ] Playlist search by tags & title
 - [ ] Users ability to comment on, create, and destroy playlists
@@ -52,13 +52,14 @@ the API.
 
 **Objective:** Playlists belong to a single user and has many comments and likes
 
-### Phase 4: Search and Playbar components (2 days)
+### Phase 4: Search and Play Bar components (2 days)
 
-**Objective:** Tags are searchable and when songs are playing, the playbar follows the user
+**Objective:** Tags are searchable when and before songs are playing, the Play Bar follows the
+user when a playlist has been selected
 
 ### Phase 5: Feed and Bonus Features (1 day)
 
-**objective:** Allow rich text editing of notes.
+**objective:** Feed shows 20 random playlists
 
 
 ### Bonus Features (TBD)
