@@ -41,4 +41,3 @@
 
 - `GET /api/playlists/:id`
 - `DELETE /api/playlists/:id`
-- `GET /api/playlists/:id/notes`

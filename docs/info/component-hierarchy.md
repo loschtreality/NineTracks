@@ -36,7 +36,7 @@ A layout of the hierarchy of NineTracks categorized by navigation.
 **SearchResultsContainer**
 
 - Search
-- NoteIndex
+- Playlists associated with tags
 
 ## User Profile
 

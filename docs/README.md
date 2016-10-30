@@ -1,8 +1,8 @@
 # Ninetracks
 
-[Heroku link][heroku] View NineTracks on Heroku
+View [NineTracks][heroku] on Heroku
 
-[Trello link][trello] Check out the Trello Board
+Check out the [Trello][trello] Board
 
 [heroku]: https://nine-tracks.herokuapp.com/
 [trello]: https://trello.com/b/1T8w0P3T/ninetracks
@@ -31,7 +31,7 @@ and sufficient CSS styling:
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: info/wireframes
+[wireframes]: ./wireframes
 [components]: info/component-hierarchy.md
 [sample-state]: info/sample-state.md
 [api-endpoints]: info/api-endpoints.md
