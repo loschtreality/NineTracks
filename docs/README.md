@@ -43,23 +43,29 @@ and sufficient CSS styling:
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Playlist Model, API, components, seeding (4 days)
+### Phase 2: Playlist Model, API, and Seeding (2 days)
 
 **Objective:** Playlists can be created, read, edited and destroyed through
 the API.
 
-### Phase 3: Playlists (2 days)
+### Phase 3: Playlist Component (2 days)
 
-**Objective:** Playlists belong to a single user and has many comments and likes
+**Objective:** Playlists belong to a single user and has many comments, likes, and tags. Everything is
 
-### Phase 4: Search and Play Bar components (2 days)
+### Phase 3: Play Bar and Continuous Play (2 days)
 
-**Objective:** Tags are searchable when and before songs are playing, the Play Bar follows the
-user when a playlist has been selected
+**Objective:** Play bar will follow the user as he/she navigates the page and continue
+to play songs if a playlist is selected
 
-### Phase 5: Feed and Bonus Features (1 day)
+### Phase 4: Search and Search Results (2 days)
 
-**objective:** Feed shows 20 random playlists
+**Objective:** All Playlists generate a tag of their own name, and have tags which the user adds to them.
+Everything is searchable by tag name. Tags can belong to multiple playlists.
+
+### Phase 5: Feed (1 day)
+
+**Objective:** A feed will display of other user's playlists on the feed page.
+
 
 
 ### Bonus Features (TBD)

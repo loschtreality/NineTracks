@@ -32,7 +32,7 @@
     1: {
       title: "Gogeta stole my nimbus",
       artist: "Piccolo",
-      picture_url: "https://google.com/images/piccolo.jpg"
+      picture_url: "https://google.com/images/piccolo.jpg",
       url: "https://www.youtube.com/over9000",
       user_id: 9001
     }
@@ -40,7 +40,10 @@
   comments: {
     1: {
       user_id: 9001,
-      body: "Is that actually what the scouter says?"
+      user_name: "Vegeta",
+      playlist_id: 1,
+      body: "Is that actually what the scouter says?",
+      date: "10/31/2016"
     }
   }
 }
