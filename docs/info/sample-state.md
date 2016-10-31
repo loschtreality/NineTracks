@@ -2,7 +2,8 @@
 {
   currentUser: {
     id: 9001,
-    username: "Vegeta"
+    username: "Vegeta",
+    picture_url: "https://google.com/images/vegeta.png"
   },
   auth: {
     signUp: {errors: []},
@@ -12,6 +13,7 @@
     1: {
       title: "Its over 9000!",
       body: "What!? NO WAY",
+      picture_url: "https://google.com/images/9000.jpg"
       user_id: 9001,
       songs: [],
       tags: []
@@ -30,6 +32,7 @@
     1: {
       title: "Gogeta stole my nimbus",
       artist: "Piccolo",
+      picture_url: "https://google.com/images/piccolo.jpg"
       url: "https://www.youtube.com/over9000",
       user_id: 9001
     }
