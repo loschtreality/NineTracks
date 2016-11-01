@@ -16,12 +16,12 @@ criteria: smooth bug-free navigation, adequate seed data
 and sufficient CSS styling:
 
 - [x] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Play Bar which follows user navigation
-- [ ] Playlists with Pictures
-- [ ] Playlist search by tags & title
-- [ ] Users ability to comment on, create, and destroy playlists
-- [ ] Continuous play for current playlist
+- [ ] New account creation, login, and guest/demo login.
+- [ ] Play Bar which follows user navigation and continuously plays selected playlist.
+- [ ] Playlist creation, song uploading, playlist deletion. Playlists can be liked and commented on.
+- [ ] Search entirely by tags (everything is a tag).
+- [ ] Users ability to comment on, create, and destroy playlists.
+- [ ] User profile page
 - [ ] [Production README](../README.md)
 
 ## Design Docs
