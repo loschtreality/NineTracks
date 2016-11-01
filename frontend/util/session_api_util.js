@@ -1,30 +1,32 @@
-export const signup = (user,success,error) => {
-  $.ajax({
-    url: "api/users",
-    method: "POST",
-    data: {user},
-    success,
-    error
-  })
-}
+import { receiveCurrentUser, receiveErrors } from 'SessionActions';
 
+export const login = function(user, success, error) {
+	$.ajax({
+		method: 'POST',
+		url: '/api/session',
+		data: {user},
+		success,
+		error
+	});
+};
 
-export const login = (user,success,error) => {
-  $.ajax({
-    url: "api/session",
-    method: "POST",
-    data: {user},
-    success,
-    error
-  })
-}
+export const signup = function(user, success, error) {
+	$.ajax({
+		method: 'POST',
+		url: '/api/users',
+		data: {user},
+		success,
+		error
+	});
+};
 
-
-export const logout = (success, error) => {
-  $.ajax({
-    url: "api/session",
-    method: "DELETE",
-    success,
-    error
-  })
-}
+export const logout = function(success){
+	$.ajax({
+		method: 'delete',
+		url: '/api/session',
+		success,
+		error: () => {
+		  console.log("Logout error in SessionApiUtil#logout");
+		}
+	});
+};
