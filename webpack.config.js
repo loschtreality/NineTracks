@@ -11,6 +11,7 @@ module.exports = {
     root: __dirname,
     alias: {
       AppComponent: "frontend/components/app.jsx",
+      Nav: "frontend/components/navigation/nav.jsx",
       RootComponent: "frontend/components/root.jsx",
       RootReducer: "frontend/reducers/root_reducer.js",
       RootMiddleware: "frontend/middleware/root_middleware.js",

@@ -10,15 +10,6 @@ class SessionForm extends React.Component {
 		};
 	}
 
-	componentDidUpdate(){
-		this.redirectIfLoggedIn();
-	}
-
-	redirectIfLoggedIn(){
-		if (this.props.loggedIn){
-			hashHistory.push("/");
-		}
-	}
 
 	update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
@@ -48,10 +39,6 @@ class SessionForm extends React.Component {
 			<div>
 				{ this.renderErrors() }
 				<div className="login-form-container">
-
-
-						<br />
-						<br />
 						<div className="login-form">
 							<br />
 							<label> Username:

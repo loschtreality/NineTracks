@@ -1,8 +1,9 @@
 import React from 'react';
+import Nav from "Nav"
 
 const App = ({ children }) => (
   <div>
-    <h1>Welcome to NineTracks</h1>
+    <Nav/>
     { children }
   </div>
 );
