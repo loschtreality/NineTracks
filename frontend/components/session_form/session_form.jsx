@@ -35,33 +35,31 @@ class SessionForm extends React.Component {
 	}
 
 	render() {
+		const text = this.props.signIn === false ? "Sign In" : "Create Account"
+		const process = this.props.signIn === false ? "login" : "signup"
+
 		return (
+
 			<div>
-				{ this.renderErrors() }
-				<div className="login-form-container">
-						<div className="login-form">
-							<br />
-							<label> Username:
-								<input type="text"
-									value={this.state.username}
-									onChange={this.update("username")}
-									className="login-input" />
-							</label>
-
-							<br />
-							<label> Password:
-								<input type="password"
-									value={this.state.password}
-									onChange={this.update("password")}
-									className="login-input" />
-							</label>
-
-							<br />
-							<button onClick={this._handleSubmit('login')}>Log In</button>
-							<button onClick={this._handleSubmit('signup')}>Sign Up</button>
-						</div>
+				<h3>{text}</h3>
+			<form onSubmit={this._handleSubmit(process)}>
+			{ this.renderErrors() }
+				<div className="form-group">
+					<label >User Name</label>
+					<input type="text" className="form-control" onChange={this.update("username")} placeholder="User Name" value={this.state.username}/>
 				</div>
-			</div>
+
+				<div className="form-group">
+					<label>Password</label>
+						<input type="password" onChange={this.update("password")} className="form-control" value={this.state.password} placeholder="Password"/>
+
+				</div>
+
+			<button type="submit" className="btn btn-default">{text}</button>
+
+			</form>
+		</div>
+
 		);
 	}
 

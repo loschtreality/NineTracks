@@ -13,7 +13,6 @@ class Nav extends React.Component {
 	}
 
   render() {
-    console.log(this.props, "props from Nav");
     return (
       <nav className="navbar navbar-inverse">
   <div className="container-fluid">
@@ -43,8 +42,8 @@ class Nav extends React.Component {
       </form>
       <ul className="nav navbar-nav navbar-right">
         <li className="dropdown">
-          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anonymous <span className="caret"></span></a>
-            <AuthDrop currentUser={this.props.currentUser}/>
+          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{ this.props.loggedIn ? this.props.currentUser.username : "Anonymous"} <span className="caret"></span></a>
+            <AuthDrop currentUser={this.props.currentUser} login={this.props.login} logout={this.props.logout}/>
         </li>
       </ul>
     </div>
@@ -55,12 +54,3 @@ class Nav extends React.Component {
 }
 
 export default Nav;
-
-
-// <ul className="dropdown-menu">
-//   <li><a href="#">Profile</a></li>
-//   <li><a href="#">Playlists</a></li>
-//   <li><a href="#">Likes</a></li>
-//   <li role="separator" className="divider"></li>
-//   <li><a href="#">Sign Out</a></li>
-// </ul>

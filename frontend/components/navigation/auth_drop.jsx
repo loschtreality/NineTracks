@@ -3,8 +3,7 @@ import { Link } from 'react-router';
 import Modal from 'react-modal'
 import modal_style from './modal_style'
 
-import SignIn from '../session_form/sign_in.jsx'
-import CreateAccount from '../session_form/create_account.jsx'
+import SessionFormContainer from '../session_form/session_form_container.js'
 
 class AuthDrop extends React.Component {
   constructor(props) {
@@ -26,21 +25,34 @@ class AuthDrop extends React.Component {
     this.setState({modalOpen: false})
   }
 
+  handleLogout(){
+    return () => {
+      this.props.logout()
+      this.handleClose()
+    };
+  }
+
+  specialLogin() {
+    return () => {
+      this.props.login({username:"demo", password:"password"})
+    };
+  }
+
   displayContent() {
-    const component = (this.state.signIn ? <CreateAccount/> : <SignIn/>)
+
       if (this.props.currentUser) {
         return (
           [<li key={1}><a key={"11"} href="#">Profile</a></li>,
           <li key={2}><a key={"22"} href="#">Playlists</a></li>,
           <li key={3}><a key={"33"} href="#">Likes</a></li>,
           <li key={4} role="divider" className="divider"></li>,
-          <li key={5}><a key={"55"}>Sign Out</a></li>]
+          <li onClick={ this.handleLogout() } key={5}><a key={"55"}>Sign Out</a></li>]
         )
       } else {
         return(
           [<li key={6} onClick={() => this.handleClick(true)}><a key={"66"} href="#">Create Account</a></li>,
           <li key={7} onClick={() => this.handleClick(false)}><a key={"77"} href="#">Sign In</a></li>,
-          <li key={8}><a key={"88"} href="#">Demo Login</a></li>,
+          <li key={8} onClick={ this.specialLogin() }><a key={"88"} href="#">Demo Login</a></li>,
             <Modal
               key={"modal"}
               onRequestClose={this.handleClose}
@@ -48,8 +60,8 @@ class AuthDrop extends React.Component {
               style={modal_style}
               >
               <span key={"closer"} onClick={this.handleClose}><a key="close" href="#">Close</a></span>
-              {component}
-            </Modal>
+              <SessionFormContainer signIn={this.state.signIn}/>
+             </Modal>
           ]
         )
       }
@@ -57,9 +69,6 @@ class AuthDrop extends React.Component {
 
 
   render () {
-
-    console.log(this.props, "props from auth_drop");
-
     return(
       <ul className="dropdown-menu">
         {this.displayContent()}
@@ -69,9 +78,3 @@ class AuthDrop extends React.Component {
 }
 
 export default AuthDrop;
-
-
-// <div class="input-group">
-//   <span class="input-group-addon" id="sizing-addon2">@</span>
-//   <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
-// </div>
