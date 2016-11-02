@@ -4,7 +4,8 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 
 import App from 'AppComponent';
-import GreetingContainer from './greeting/greeting_container';
+import Home from './home/home_container.js';
+
 
 
 const Root = ({ store }) => (
@@ -12,7 +13,7 @@ const Root = ({ store }) => (
 
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={GreetingContainer} />
+          <IndexRoute component={Home} />
 
         </Route>
       </Router>
