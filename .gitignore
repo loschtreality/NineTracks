@@ -20,3 +20,10 @@
 node_modules/
 bundle.js
 bundle.js.map
+
+
+config/cloudinary.yml
+config/secrets.yml
+
+# Ignore application configuration
+/config/application.yml

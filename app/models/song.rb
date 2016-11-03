@@ -13,6 +13,8 @@
 #
 
 class Song < ApplicationRecord
+  validates :title, :artist, :url, :user_id, presence: true
+  validates :title, length: {minimum: 1}
   belongs_to :user
 
   has_many(
@@ -23,7 +25,7 @@ class Song < ApplicationRecord
   )
 
   has_many(
-  :playlist,
+  :playlists,
   through: :mixes,
   source: :playlist
   )
