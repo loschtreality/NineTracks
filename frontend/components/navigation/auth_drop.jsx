@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Modal from 'react-modal'
 import modal_style from './modal_style'
 
-import SessionFormContainer from '../session_form/session_form_container.js'
+import SessionFormContainer from 'SessionFormContainer'
 
 class AuthDrop extends React.Component {
   constructor(props) {
@@ -57,10 +57,14 @@ class AuthDrop extends React.Component {
               key={"modal"}
               onRequestClose={this.handleClose}
               isOpen={this.state.modalOpen}
+              className="auth-modal"
               style={modal_style}
               >
-              <span key={"closer"} onClick={this.handleClose}><a key="close" href="#">Close</a></span>
-              <SessionFormContainer signIn={this.state.signIn}/>
+
+                  <span className="close-box" key={"closer"} onClick={this.handleClose}><a className="close-link" key="close" href="#">Close</a></span>
+
+                  <SessionFormContainer signIn={this.state.signIn}/>
+
              </Modal>
           ]
         )

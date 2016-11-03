@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationContainer from "./navigation/navigation_container.js"
+import NavigationContainer from "NavigationContainer"
 
 const App = ({ children }) => (
   <div>

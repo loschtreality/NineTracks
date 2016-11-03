@@ -1,13 +1,13 @@
 import React from 'react'
 
-class Home extends React.Component {
+class Feed extends React.Component {
   render () {
     return (
       <div>
-        <h1>NineTracks</h1>
+        Welcome to the feed Page
       </div>
     )
   }
 }
 
-export default Home;
+export default Feed;

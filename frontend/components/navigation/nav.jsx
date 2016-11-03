@@ -1,16 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router';
-import AuthDrop from './auth_drop.jsx'
+import AuthDrop from 'AuthDrop'
 
 class Nav extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {username: "", password: ""}
+    this.state = {username: "", password: "", activeTab: 1}
   }
 
   update(field){
     return e => { this.setState({[field]: e.currentTarget.value }); };
 	}
+
+
+  changeActiveTab(tabNum) {
+    this.setState({activeTab: tabNum})
+  }
 
   render() {
     return (
@@ -18,20 +23,20 @@ class Nav extends React.Component {
   <div className="container-fluid">
 
     <div className="navbar-header">
-      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
         <span className="sr-only">Toggle navigation</span>
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <a className="navbar-brand" href="#">NineTracks</a>
+      <a className="navbar-brand" href="#" onClick={() => this.changeActiveTab(1)}>NineTracks</a>
     </div>
 
 
-    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div className="collapse navbar-collapse" id="navbar-collapse-1">
       <ul className="nav navbar-nav">
-        <li className="active"><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
-        <li><Link to="/feed">Feed</Link></li>
+        <li className={this.state.activeTab === 1 ? "active" : ""} onClick={() => this.changeActiveTab(1)}><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
+        <li className={this.state.activeTab === 2 ? "active" : ""} onClick={() => this.changeActiveTab(2)}><Link to="/feed">Feed</Link></li>
 
       </ul>
       <form className="navbar-form navbar-left">

@@ -1,0 +1,31 @@
+.auth-modal {
+  width: 50%;
+}
+
+.close-box {
+  display: block;
+  width: 100%;
+  color: $primary-color;
+}
+
+.close-link:hover {
+  color: $primary-color;
+}
+
+
+.auth-form {
+  float: left;
+  color: $primary-color;
+  width: 100%;
+  position: relative;
+  transform: translate(0%, 25%);
+  h3 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  label {
+    margin-bottom: 5px;
+  }
+}
