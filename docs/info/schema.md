@@ -35,7 +35,15 @@ user_id     | integer   | not null, foreign key (references users)
 column name | data type | details
 ----------- | --------- | -------------------------
 id          | integer   | not null, primary key
-title       | string    | not null, unique, indexed
+title       | string    | not null
+
+## Mixes
+
+column name | data type | details
+----------- | --------- | -------------------------
+id          | integer   | not null, primary key
+playlist_id | string    | not null, unique, indexed
+song_id     | string    | not null, unique, indexed
 
 ## Songs
 
