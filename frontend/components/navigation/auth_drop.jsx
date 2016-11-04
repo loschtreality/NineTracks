@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Link } from 'react-router';
 import Modal from 'react-modal'
 import modal_style from './modal_style'

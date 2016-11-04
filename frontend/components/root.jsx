@@ -5,7 +5,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import App from 'AppComponent';
 import HomeContainer from 'HomeContainer';
-import FeedContainer from 'FeedContainer'
+import PlaylistFeedContainer from 'PlaylistFeedContainer'
 
 
 
@@ -15,7 +15,7 @@ const Root = ({ store }) => (
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={HomeContainer} />
-          <Route path="/feed" component={FeedContainer}/>
+          <Route path="/feed" component={PlaylistFeedContainer}/>
         </Route>
       </Router>
 
