@@ -1,3 +1,165 @@
-.playlist-form {
-  width: 50%;
+.playlist-status {
+  background-color: rgba(0, 0, 0, 0.69);
+  min-height: 60px;
+  color: white;
+}
+
+
+.upload-inputs {
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+}
+
+.upload-container {
+  background-image: url(http://farm9.staticflickr.com/8285/7754976994_b2279bece9.jpg);
+  background-position: center;
+}
+
+#upload_cover_photo {
+  width: 100%;
+  height: 360px;
+}
+
+#cover_art {
+  height: 360px;
+}
+
+#cover_art_instructions {
+  display: block;
+  position: absolute;
+  left: 5%;
+  background: $faded-black;
+  text-align: center;
+  padding: 11px;
+  border-radius: 3px;
+  height: auto;
+  width: 90%;
+  box-shadow: 0 0 50px $faded-black-shadow;
+  top: 10px;
+}
+
+#upload_cover_art_buttons {
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+}
+
+#url_sub {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 28px;
+}
+
+.upload_button {
+  width: 100%;
+}
+
+#mix_edit_details {
+  width: 100%;
+  padding: 8px 10px;
+}
+
+#mix_edit_title {
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+#mix_edit_description {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #dcdcdc;
+  min-height: 100px;
+}
+
+#mix_edit_tags {
+  margin-top: 20px;
+  width: 100%;
+  min-height: 40px;
+}
+
+
+#upload_tracks {
+  min-height: 250px;
+
+}
+
+#track_upload_header {
+  height: 70px;
+  border-bottom: 2px solid #999;
+  padding: 25px 15px;
+  background: #fafafa;
+  margin-bottom: 5px;
+}
+
+
+#track_count {
+  float: right;
+  font-size: 18px;
+  color: $alternate;
+}
+
+
+#track_items {
+  display: block;
+
+}
+
+.track_list {
+  display: block;
+  list-style: none;
+  margin-bottom: 0.9em
+}
+
+.number {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  color: #ddd;
+  font-size: 30px;
+  font-weight: bold;
+  width: 36px;
+  text-align: left;
+}
+
+.track {
+  position: relative;
+  min-height: 50px;
+  padding: 10px 30px 10px 55px;
+  margin: 0;
+  width: 100%;
+}
+
+.track_name {
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+.remove_track {
+  float: right;
+}
+
+.even {
+  background-color: $alternate-accent;
+}
+
+.odd {
+
+}
+
+#search_tracks {
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  border-radius: 15px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
 }

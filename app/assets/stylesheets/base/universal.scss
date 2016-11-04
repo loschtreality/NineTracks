@@ -1,0 +1,39 @@
+.flatbutton {
+  cursor: pointer;
+  background: $alt-background;
+  border-radius: 30px;
+  padding: 10px 18px;
+  color: $primary-color;
+  border: 1px solid transparent;
+  text-align: center;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: inline-block;
+  transition: color 0.1s linear, background-color 0.1s linear;
+}
+
+// place on input or any field
+.roundText {
+  font-family: "Helvetica";
+  color: $dark-text;
+  background-color: #fff;
+  padding: 8px;
+}
+
+// Div class element
+.step {
+  position: relative;
+  margin-top: 20px;
+}
+
+.clear {
+  display: inline-block;
+  clear: both;
+}
+
+
+.spacer {
+    margin-top: 20px;
+}

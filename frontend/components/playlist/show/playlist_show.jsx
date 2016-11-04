@@ -1,11 +1,17 @@
 import React, { PropTypes } from 'react'
 
 class PlaylistShow extends React.Component {
+  constructor () {
+    super()
+
+
+  }
+
 
   render () {
     return (
       <div>
-        <h4>Hi</h4>
+        Show Page
       </div>
     );
   }
