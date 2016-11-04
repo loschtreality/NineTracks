@@ -4,6 +4,10 @@ class Api::PlaylistsController < ApplicationController
     @playlists = Playlist.all.includes(:tags).includes(:songs)
   end
 
+  def show
+    @playlist = Playlist.find(params[:id])
+  end
+
   def create
     @playlist = Playlist.new(playlist_params)
     @playlist.user_id = current_user.id
@@ -39,7 +43,7 @@ class Api::PlaylistsController < ApplicationController
     @playlist = current_user.playlists.find(params[:id])
 
     if @playlist.update_attributes(playlist_params)
-      # do stuff: render the show template
+      render show
     else
       render json: ["An error occurred while editing the playlist"], status: 401
     end
