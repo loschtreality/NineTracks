@@ -1,12 +1,37 @@
-const path = require('path');
+var webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
-  entry: './frontend/nineTracks.jsx',
+  entry: "./frontend/nineTracks.jsx",
   output: {
-    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'bundle.js'
+    path: "./app/assets/javascripts",
+    filename: "bundle.js"
   },
+  plugins:[
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress:{
+        warnings: true
+      }
+    })
+  ],
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['react', 'es2015']
+        }
+      }
+    ]
+  },
+  devtool: 'source-map',
   resolve: {
     root: __dirname,
     alias: {
@@ -38,19 +63,6 @@ module.exports = {
       SessionReducer: "frontend/reducers/session_reducer.js",
       Store: "frontend/store/store.js"
     },
-    extensions: ['', '.js', '.jsx']
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
-        }
-      }
-    ]
-  },
-  devtool: 'source-maps'
+    extensions: ["", ".js", ".jsx"]
+  }
 };

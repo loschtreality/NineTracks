@@ -3,7 +3,8 @@ import {fetchPlaylist} from 'PlaylistActions'
 import PlaylistShow from 'PlaylistShow'
 
 const mapStateToProps = (state, ownProps) => ({
-  playlist: state.playlists
+  playlist: state.playlists,
+  own: ownProps
 })
 
 const mapDispatchToProps = (dispatch) => ({

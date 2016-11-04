@@ -42,9 +42,9 @@ class AuthDrop extends React.Component {
 
       if (this.props.currentUser) {
         return (
-          [<li key={1}><a key={"11"} href="#">Profile</a></li>,
-          <li key={2}><a key={"22"} href="#">Playlists</a></li>,
-          <li key={3}><a key={"33"} href="#">Likes</a></li>,
+          [<li key={1}><Link key={"11"} to="/new">New Playlist</Link></li>,
+          <li key={2}><a key={"22"} href="#">Profile</a></li>,
+          <li key={3}><a key={"33"} href="#">Playlists</a></li>,
           <li key={4} role="divider" className="divider"></li>,
           <li onClick={ this.handleLogout() } key={5}><a key={"55"}>Sign Out</a></li>]
         )
