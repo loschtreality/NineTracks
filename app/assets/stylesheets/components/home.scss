@@ -1,0 +1,17 @@
+#home-banner {
+  min-height: 800px;
+  z-index: 10;
+  background-image: image-url('record.gif');
+  background-size: 100% 100%;
+}
+
+.banner-container {
+  position: absolute;
+  top: 15%;
+  background: transparent;
+  color: white;
+}
+
+.banner-text {
+  font-size: -webkit-xxx-large;
+}

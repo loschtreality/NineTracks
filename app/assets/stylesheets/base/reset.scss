@@ -24,8 +24,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 body {
  line-height: 1;
  color: black;
- background: white;
- font-family: sans-serif;
+ background: transparent;
+ font-family: $primary-font;
 }
 ol, ul {
  list-style: none;
@@ -68,6 +68,7 @@ a:active{
 
 a:hover {
   text-decoration: none;
+  color: $alternate;
 }
 
 input {

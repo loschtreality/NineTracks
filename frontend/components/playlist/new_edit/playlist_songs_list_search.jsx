@@ -8,8 +8,8 @@ class SongListSearch extends React.Component {
         <div className="col-lg-6 col-md-6 col-xs-12" id="upload_tracks">
           <div id="track_upload_header">
             <div id="track_count">
-              <span></span>
-              <span id="length">0</span>
+              <span>Tracks:</span>
+              <span id="length"> 2</span>
             </div>
             <h6>Choose at least 9 Tracks</h6>
           </div>

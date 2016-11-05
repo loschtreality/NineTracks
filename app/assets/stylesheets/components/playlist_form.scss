@@ -1,7 +1,6 @@
 .playlist-status {
   background-color: rgba(0, 0, 0, 0.69);
   min-height: 60px;
-  color: white;
 }
 
 
@@ -15,6 +14,18 @@
 .upload-container {
   background-image: url(http://farm9.staticflickr.com/8285/7754976994_b2279bece9.jpg);
   background-position: center;
+}
+
+#instructions {
+  margin: 10px;
+  color: $primary-accent;
+  b {
+    color: $alternate
+  }
+}
+
+#save_playlist {
+  margin: 10px;
 }
 
 #upload_cover_photo {

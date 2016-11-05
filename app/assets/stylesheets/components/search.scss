@@ -1,0 +1,16 @@
+.search-box {
+  border-radius: 19px;
+  overflow: hidden;
+  background: $alt-background;
+  position: relative;
+  width: 50%;
+}
+
+.search-input-container {
+  min-width: 80%;
+}
+
+.search-input {
+  min-width: 100%;
+  border-radius: 0px;
+}

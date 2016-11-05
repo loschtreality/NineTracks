@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router';
 import AuthDrop from 'AuthDrop'
+import Search from 'Search'
 
 class Nav extends React.Component {
   constructor (props) {
@@ -20,7 +21,9 @@ class Nav extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-inverse">
-  <div className="container-fluid">
+        <div className="container-fluid">
+
+
 
     <div className="navbar-header">
       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
@@ -34,20 +37,14 @@ class Nav extends React.Component {
 
 
     <div className="collapse navbar-collapse" id="navbar-collapse-1">
-      <ul className="nav navbar-nav">
+        <Search/>
+      <ul className="nav navbar-nav navbar-right">
+
         <li className={this.state.activeTab === 1 ? "active" : ""} onClick={() => this.changeActiveTab(1)}><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
         <li className={this.state.activeTab === 2 ? "active" : ""} onClick={() => this.changeActiveTab(2)}><Link to="/feed">Feed</Link></li>
 
-      </ul>
-      <form className="navbar-form navbar-left">
-        <div className="form-group">
-          <input type="text" className="form-control" placeholder="Search"></input>
-        </div>
-        <button type="submit" className="btn btn-default">Submit</button>
-      </form>
-      <ul className="nav navbar-nav navbar-right">
         <li className="dropdown">
-          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{ this.props.loggedIn ? this.props.currentUser.username : "Anonymous"} <span className="caret"></span></a>
+          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{ this.props.loggedIn ? this.props.currentUser.username : "Create Account"} <span className="caret"></span></a>
             <AuthDrop currentUser={this.props.currentUser} login={this.props.login} logout={this.props.logout}/>
         </li>
       </ul>
