@@ -6,7 +6,12 @@ import {
 
 import merge from 'lodash/merge'
 
-const PlaylistReducer = (oldState = {}, action) => {
+const defaultState = {
+
+}
+
+
+const PlaylistReducer = (oldState = defaultState, action) => {
   switch (action.type) {
     case RECEIVE_ALL_PLAYLISTS:
       return merge({}, action.playlists);

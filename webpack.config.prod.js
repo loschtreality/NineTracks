@@ -51,7 +51,7 @@ module.exports = {
       PlaylistShowContainer: "frontend/components/playlist/show/playlist_show_container.js",
       PlaylistMiddleware: "frontend/middleware/playlist_middleware.js",
       PlaylistReducer: "frontend/reducers/playlist_reducer.js",
-      PlaylistSmall: "frontend/components/playlist_small.jsx",
+      PlaylistSmall: "frontend/components/playlist/playlist_small.jsx",
       PlaylistSongListSearch: "frontend/components/playlist/new_edit/playlist_songs_list_search.jsx",
       PlaylistUtils: "frontend/util/playlist_util.js",
       RootComponent: "frontend/components/root.jsx",

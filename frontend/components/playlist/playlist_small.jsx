@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 class PlaylistSmall extends React.Component {
   render () {
     return (
-      <div></div>
+      <div>I'm a small playlist</div>
     );
   }
 }

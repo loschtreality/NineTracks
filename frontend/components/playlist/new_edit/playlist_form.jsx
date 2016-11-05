@@ -10,11 +10,25 @@ class PlaylistForm extends React.Component {
     this.state = {title: "Untitled Mix"}
   }
 
-  _handleSubmit(process) {
+  _handleSubmit (process) {
     //Redirect to show
+    return (e) => {
+      e.preventDefault()
+      //get playlist details
+      //get songs
+      //push to cloudinary
+      //put data in DB
+      //redirect to show
+    };
   }
 
+  getSongs () {
 
+  }
+
+  getDetails () {
+
+  }
 
   render () {
     return (
@@ -29,13 +43,13 @@ class PlaylistForm extends React.Component {
           </div>
 
           <div className="col-md-5 col-md-offset-3">
-              <a href="#" id="save_playlist" className="flatbutton">Save & Close</a>
+              <a href="#" id="save_playlist" onClick={this._handleSubmit(this.props.process)} className="flatbutton">Save & Close</a>
           </div>
         </div>
 
-        <PlaylistDetails/>
+        <PlaylistDetails getDetails={this.getDetails}/>
 
-        <PlaylistSongListSearch/>
+        <PlaylistSongListSearch getSongs={this.getSongs}/>
 
 
 

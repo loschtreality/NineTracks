@@ -12,10 +12,12 @@ module.exports = {
     alias: {
       AppComponent: "frontend/components/app.jsx",
       AuthDrop: "frontend/components/navigation/auth_drop.jsx",
+      Cloud: "frontend/components/cloud/cloud.jsx",
       Home: "frontend/components/home/home.jsx",
       HomeContainer: "frontend/components/home/home_container.js",
       Nav: "frontend/components/navigation/nav.jsx",
       NavigationContainer: "frontend/components/navigation/navigation_container.js",
+      PictureActions: "frontend/actions/picture_actions.js",
       PlaylistActions: "frontend/actions/playlist_actions.js",
       PlaylistDetails: "frontend/components/playlist/new_edit/playlist_details.jsx",
       PlaylistFeed: "frontend/components/playlist/feed/playlist_feed.jsx",
@@ -40,7 +42,12 @@ module.exports = {
       SessionMiddleware: "frontend/middleware/session_middleware.js",
       SessionUtils: "frontend/util/session_api_util.js",
       SessionReducer: "frontend/reducers/session_reducer.js",
-      Store: "frontend/store/store.js"
+      SongActions: "frontend/actions/song_actions.js",
+      SongMiddleware: "frontend/middleware/song_middleware.js",
+      SongReducer: "frontend/reducers/song_reducer.js",
+      SongUtils: "frontend/util/song_util.js",
+      Store: "frontend/store/store.js",
+      UploadButton: "frontend/components/cloud/upload_button.jsx"
     },
     extensions: ['', '.js', '.jsx']
   },

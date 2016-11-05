@@ -3,6 +3,10 @@ class Api::SongsController < ApplicationController
     @songs = Song.all
   end
 
+  def show
+    @song = Song.find(params[:id])
+  end
+
 
   def create
     @song = Song.create(song_params)
@@ -17,3 +21,5 @@ class Api::SongsController < ApplicationController
     params.permit(:song).require(:picture_url, :url)
   end
 end
+
+#take out picture_url
