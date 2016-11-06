@@ -26,8 +26,8 @@ const PlaylistsMiddleware = (store) => (next) => (action) => {
   let removePlaylistSuccess = (playlist) => store.dispatch(removePlaylist(playlist))
 
   let createUpdatePostSuccess = (playlist) => {
-    dispatch(receivePlaylist(playlist))
-    hashHistory.push(`api/playlists/${playlist.id}`)
+    store.dispatch(receivePlaylist(playlist))
+    hashHistory.push(`playlists/${playlist.id}`)
   }
 
   switch (action.type) {

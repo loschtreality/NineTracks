@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resources :playlists
     resources :comments, only: [:create, :destroy]
-    resources :tags, only: [:create]
+    resources :tags, only: [:index, :create]
+    resources :taggings, only: [:index, :create]
     resources :songs, only: [:index, :show, :create]
 
     resource :session, only: [:create, :destroy ]

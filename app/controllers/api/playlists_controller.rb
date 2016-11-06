@@ -11,25 +11,19 @@ class Api::PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.new(playlist_params)
     @playlist.user_id = current_user.id
+    @playlist.username = current_user.username
 
     if @playlist.save
-      tag = Tag.create(@playlist.title)
+      tag = Tag.new(title: @playlist.title.downcase)
 
-        # Create a new tag with the name of the playlist and add to tags
-        # Search and add if tag is already created
         if tag.save
-          @playlist.tags.push(tag)
+          Tagging.create(playlist_id: @playlist.id, tag_id: tag.id)
         else
-          res = Tag.find_by(title: @playlist.title)
-          @playlist.tags.push(res)
+          tag = Tag.find_by(title: @playlist.title)
+          Tagging.create(playlist_id: @playlist.id, tag_id: tag.id)
         end
 
-        # Add photo to cloud if passed in
-
-        # unless @playlist.picture_url.nil?
-        #   #upload to cloudinary
-        # end
-
+      render "api/playlists/show"
     else
       render json: ["Invalid playlist"], status: 401
     end
@@ -61,5 +55,4 @@ class Api::PlaylistsController < ApplicationController
   def playlist_params
     params.require(:playlist).permit(:title, :description, :picture_url, tag_ids: [])
   end
-
 end

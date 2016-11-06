@@ -6,6 +6,7 @@ import Search from 'Search'
 class Nav extends React.Component {
   constructor (props) {
     super(props)
+
     this.state = {username: "", password: "", activeTab: 1}
   }
 

@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react'
+import UploadPicButton from 'UploadPicButton'
+
 
 class PlaylistDetails extends React.Component {
 
@@ -22,11 +24,8 @@ class PlaylistDetails extends React.Component {
 
               <div id="upload_cover_art_buttons">
                 <form className="img_upload_form">
-                  <div id="upload_form_url">
-                    <input id="url_sub" onChange={this.props.update('url')} placeholder="Enter URL Here" type="text"></input>
-                  </div>
                   <div className="col-md-12 col-lg-12">
-                    <a href="#" className="flatbutton upload_button">Upload Image</a>
+                    <a className="flatbutton upload_button" onClick={this.props.cloudUpdate}>Upload Picture</a>
                   </div>
 
                 </form>

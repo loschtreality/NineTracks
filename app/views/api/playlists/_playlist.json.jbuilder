@@ -1,4 +1,4 @@
-json.extract! playlist, :id, :title, :description, :picture_url
+json.extract! playlist, :id, :username, :title, :description, :picture_url
   json.songs do |song|
     json.partial! "api/songs/song", collection: playlist.songs, as: :song
   end

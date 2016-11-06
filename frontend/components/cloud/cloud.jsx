@@ -20,8 +20,9 @@ class Cloudinary extends React.Component {
     $.ajax({
       url: `api/songs`,
       method: "POST",
+      data: ,
       success: (song) => {
-        // update list of images by dispatching a method which change state
+        this.props.createSong()
       }//.bind(this)
     })
   }
@@ -29,7 +30,7 @@ class Cloudinary extends React.Component {
   render () {
     return (
       <div>
-        <UploadButton postSong={this.postSong}/>
+        <UploadSongButton postSong={this.postSong}/>
         <SongsList songs={this.state.songs}
       </div>
     );

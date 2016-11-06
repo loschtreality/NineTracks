@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-class UploadButton extends React.Component {
+class UploadSongButton extends React.Component {
 
   upload (e) {
     e.preventDefault()
@@ -14,9 +14,9 @@ class UploadButton extends React.Component {
 
   render () {
     return (
-      <a className="flatbutton" onClick={this.upload}>Upload Song</button>
+      <a className="flatbutton upload_button" onClick={this.upload}>Upload Song</a>
     );
   }
 }
 
-export default UploadButton;
+export default UploadSongButton;

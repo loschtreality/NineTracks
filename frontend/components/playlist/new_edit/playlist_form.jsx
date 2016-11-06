@@ -13,10 +13,10 @@ class PlaylistForm extends React.Component {
     //If this is an edit, render a delete button
       //delete redirects to user/show page
 
-      // add in query and search Reults keys
-    this.state = merge({title: "Untitled Playlist", description: "", tags: "", picture_url: "", songs: [], query: "", searchResults: []}, this.props.playlist)
+    this.state = merge({type: "new", title: "Untitled Playlist", description: "", tags: "", picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg", songs: [], query: "", searchResults: []}, this.props.playlist)
 
     this.update = this.update.bind(this)
+    this.cloudUpdate = this.cloudUpdate.bind(this)
     this.add_track = this.add_track.bind(this)
     this.remove_track = this.remove_track.bind(this)
     this.findSongs = this.findSongs.bind(this)
@@ -30,11 +30,10 @@ class PlaylistForm extends React.Component {
     }
   }
 
-  _handleSubmit (process) {
+  _handleSubmit (type) {
 
     return (e) => {
       e.preventDefault()
-      //get playlist details
       let submission = {
         title: this.state.title,
         description: this.state.description,
@@ -42,10 +41,13 @@ class PlaylistForm extends React.Component {
         tags: this.parseTags(this.state.tags),
         songs: this.state.songs
       }
-      //push to cloudinary
 
-      //put data in DB
-      this.props.createPlaylist(submission)
+      if (type === "new") {
+        console.log(submission, "submission");
+        this.props.createPlaylist(submission)
+      } else {
+        this.props.updatePlaylist(submission)
+      }
     };
   }
 
@@ -62,6 +64,16 @@ class PlaylistForm extends React.Component {
         this.setState({[field]: e.target.value})
       }
     };
+  }
+
+  cloudUpdate (e) {
+    e.preventDefault()
+    cloudinary.openUploadWidget(window.c_o, (error, images) => {
+      if (error === null) {
+        this.setState({picture_url: images[0].url})
+        $('.upload-container').css("background-image", `url(${this.state.picture_url})`)
+      }
+    })
   }
 
 
@@ -113,7 +125,7 @@ class PlaylistForm extends React.Component {
           </div>
         </div>
 
-        <PlaylistDetails update={this.update} attributes={this.state}/>
+        <PlaylistDetails update={this.update} attributes={this.state} cloudUpdate={this.cloudUpdate}/>
 
 
         <div className="row spacer">

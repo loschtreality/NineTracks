@@ -9,7 +9,7 @@ class PlaylistShow extends React.Component {
   render () {
   let content;
     if (this.props.playlist) {
-      content = "hey"
+      content = `You've reached the playlist show page of ${this.props.playlist.title}`
     } else {
       content = "Loading"
     }
