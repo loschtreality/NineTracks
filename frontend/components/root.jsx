@@ -18,7 +18,7 @@ const Root = ({ store }) => (
         <Route path="/" component={App}>
           <IndexRoute component={HomeContainer} />
           <Route path="/feed" component={PlaylistFeedContainer}/>
-          <Route path="/new`" component={PlaylistFormContainer}/>
+          <Route path="/new" component={PlaylistFormContainer}/>
           <Route path="/playlists/:id" component={PlaylistShowContainer}/>
         </Route>
       </Router>

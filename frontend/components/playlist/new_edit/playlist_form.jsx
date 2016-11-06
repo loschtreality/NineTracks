@@ -2,16 +2,30 @@ import React, { PropTypes } from 'react'
 import PlaylistDetails from 'PlaylistDetails'
 import PlaylistSongListSearch from 'PlaylistSongListSearch'
 
+import { hashHistory } from 'react-router'
+
 class PlaylistForm extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     //If this is an edit, render a delete button
       //delete redirects to user/show page
-    this.state = {title: "Untitled Mix"}
+    this.state = this.props.playlist || {title: "Untitled Playlist", description: "", tags: "", songs: [], query: ""}
+
+    this.update = this.update.bind(this)
+    this.add_track = this.add_track.bind(this)
+    this.remove_track = this.remove_track.bind(this)
+  }
+
+
+  componentDidMount () {
+    if (this.props.playlist) {
+      this.setState({type: "edit"})
+      // have fields autofill if edit
+    }
   }
 
   _handleSubmit (process) {
-    //Redirect to show
+
     return (e) => {
       e.preventDefault()
       //get playlist details
@@ -22,12 +36,27 @@ class PlaylistForm extends React.Component {
     };
   }
 
-  getSongs () {
-
+  update (field) {
+    return (e) => {
+      this.setState({[field]: e.target.value})
+      console.log(this.state);
+    };
   }
 
-  getDetails () {
 
+  add_track(track){
+    return (e) => {
+      e.preventDefault()
+      this.setState({songs: [...this.state.songs, track]})
+    }
+  }
+
+  remove_track (track_number) {
+    return (e) => {
+      e.preventDefault()
+      let newList = songs.filter((song, index) => index !== track_number)
+      this.setState({songs: newList})
+    }
   }
 
   render () {
@@ -43,13 +72,13 @@ class PlaylistForm extends React.Component {
           </div>
 
           <div className="col-md-5 col-md-offset-3">
-              <a href="#" id="save_playlist" onClick={this._handleSubmit(this.props.process)} className="flatbutton">Save & Close</a>
+              <a href="#" id="save_playlist" onClick={this._handleSubmit(this.state.type)} className="flatbutton">Save & Close</a>
           </div>
         </div>
 
-        <PlaylistDetails getDetails={this.getDetails}/>
+        <PlaylistDetails update={this.update} attributes={this.state}/>
 
-        <PlaylistSongListSearch getSongs={this.getSongs}/>
+        <PlaylistSongListSearch add_track={() => this.add_track} remove_track={() => this.remove_track} songs={this.state.songs} query={this.state.query}/>
 
 
 

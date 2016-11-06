@@ -1,6 +1,85 @@
 import React, { PropTypes } from 'react'
 
 class SongListSearch extends React.Component {
+  constructor (props) {
+    super(props)
+
+  }
+
+
+
+
+
+  findSongs(query) {
+    //dispatch actions to get songs
+  }
+
+
+  renderSearchResults (query) {
+    if (query === "") {
+      return (
+        <li className="clear track">
+        </li>
+      )
+    }
+
+    let tracks = this.findSongs(query)
+
+    return tracks.map((track, index) => {
+      return (
+        <li className="clear track">
+          <span className="number">{index + 1}</span>
+          <div className="track_info">
+            <span className="track_name">{track.title}</span>
+            <span className="track_artist">{track.artist}</span>
+          </div>
+          <div>
+            <button onClick={this.props.add_track(track)} className="add_track">Add to Playlist</button>
+          </div>
+        </li>
+      )
+    })
+  }
+
+
+  renderSelectedSongs (songs) {
+    if (songs.length === 0) {
+      return (
+        <li className="clear track">
+        </li>
+      )
+    }
+
+    return songs.map((song, index) => {
+      let isEven = index % 2 === 0
+        if (isEven) {
+          return (<li className="even clear track">
+            <span className="number">{index + 1}</span>
+            <div className="track_info">
+              <span className="track_name">{song.title}</span>
+              <span className="track_artist">{song.artist}</span>
+            </div>
+            <div>
+              <button onClick={this.props.remove_track(index)} className="remove_track">Delete</button>
+            </div>
+          </li>)
+        } else {
+          return (<li className="odd clear track">
+            <span className="number">{index + 1}</span>
+            <div className="track_info">
+              <span className="track_name">{song.title}</span>
+              <span className="track_artist">{song.artist}</span>
+            </div>
+            <div>
+              <button onClick={this.props.remove_track(index)} className="remove_track">Delete</button>
+            </div>
+          </li>)
+
+        }
+    })
+
+  }
+
 
   render () {
     return (
@@ -9,33 +88,14 @@ class SongListSearch extends React.Component {
           <div id="track_upload_header">
             <div id="track_count">
               <span>Tracks:</span>
-              <span id="length"> 2</span>
+              <span id="length">{this.props.songs.length}</span>
             </div>
             <h6>Choose at least 9 Tracks</h6>
           </div>
 
           <div id="track_items">
             <ul className="track_list">
-              <li className="even clear track">
-                <span className="number">1</span>
-                <div className="track_info">
-                  <span className="track_name">Stairway to heaven</span>
-                  <span className="track_artist">Led Zeppelin</span>
-                </div>
-                <div>
-                  <button className="remove_track">Delete</button>
-                </div>
-              </li>
-              <li className="odd clear track">
-                <span className="number">2</span>
-                <div className="track_info">
-                  <span className="track_name">Cigaretts in the theater</span>
-                  <span className="track_artist">Cinnema club</span>
-                </div>
-                <div>
-                  <button className="remove_track">Delete</button>
-                </div>
-              </li>
+              {this.renderSelectedSongs(this.props.songs)}
             </ul>
           </div>
         </div>
@@ -50,26 +110,7 @@ class SongListSearch extends React.Component {
 
           <div id="track_items">
             <ul className="track_list">
-              <li className="clear track">
-                <span className="number">1</span>
-                <div className="track_info">
-                  <span className="track_name">Stairway to heaven</span>
-                  <span className="track_artist">Led Zeppelin</span>
-                </div>
-                <div>
-                  <button className="remove_track">Add to Playlist</button>
-                </div>
-              </li>
-              <li className="odd clear track">
-                <span className="number">2</span>
-                <div className="track_info">
-                  <span className="track_name">Cigaretts in the theater</span>
-                  <span className="track_artist">Cinnema club</span>
-                </div>
-                <div>
-                  <button className="remove_track">Add to Playlist</button>
-                </div>
-              </li>
+              {this.renderSearchResults(this.props.query)}
             </ul>
           </div>
 

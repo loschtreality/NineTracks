@@ -158,12 +158,16 @@
   float: right;
 }
 
+.add_track {
+  float: right;
+}
+
 .even {
   background-color: $alternate-accent;
 }
 
 .odd {
-
+  background-color: transparent;
 }
 
 #search_tracks {

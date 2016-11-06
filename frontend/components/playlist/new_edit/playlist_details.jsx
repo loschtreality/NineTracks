@@ -1,20 +1,9 @@
 import React, { PropTypes } from 'react'
 
 class PlaylistDetails extends React.Component {
-  constructor() {
-    super()
-
-    this.state = {title: "Untitled Playlist"}
-  }
-
-  update(field) {
-    return (e) => {
-      this.setState({[field]: e.target.value})
-    };
-  }
-
 
   render () {
+
     return (
       <div className="row">
 
@@ -51,13 +40,13 @@ class PlaylistDetails extends React.Component {
         <div className="col-xl-8 col-lg-8 col-md-8 col-sm-7" >
           <form id="mix_edit_details">
             <div className="step">
-              <input id="mix_edit_title" className="roundText" onChange={this.update('title')} type="text" value={this.state.title}></input>
+              <input id="mix_edit_title" className="roundText" onChange={this.props.update('title')} type="text" value={this.props.attributes.title}></input>
             </div>
             <div className="step">
-              <textarea placeholder="Describe your playlist" id="mix_edit_description" className="roundText"></textarea>
+              <textarea placeholder="Describe your playlist" onChange={this.props.update('description')} id="mix_edit_description" className="roundText" value={this.props.attributes.description}></textarea>
             </div>
             <div className="step">
-              <input className="roundText" id="mix_edit_tags" placeholder="Add tags separated by comma" type="text"></input>
+              <input className="roundText" id="mix_edit_tags" onChange={this.props.update('tags')} placeholder="Add tags separated by comma" type="text" value={this.props.attributes.tags}></input>
             </div>
           </form>
 
