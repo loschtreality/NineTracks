@@ -1,19 +1,25 @@
 import React, { PropTypes } from 'react'
 import PlaylistDetails from 'PlaylistDetails'
-import PlaylistSongListSearch from 'PlaylistSongListSearch'
+import PlaylistSongList from 'PlaylistSongList'
+import PlaylistSongSearch from 'PlaylistSongSearch'
 
 import { hashHistory } from 'react-router'
+
+import merge from 'lodash/merge'
 
 class PlaylistForm extends React.Component {
   constructor (props) {
     super(props)
     //If this is an edit, render a delete button
       //delete redirects to user/show page
-    this.state = this.props.playlist || {title: "Untitled Playlist", description: "", tags: "", songs: [], query: ""}
+
+      // add in query and search Reults keys
+    this.state = merge({title: "Untitled Playlist", description: "", tags: "", picture_url: "", songs: [], query: "", searchResults: []}, this.props.playlist)
 
     this.update = this.update.bind(this)
     this.add_track = this.add_track.bind(this)
     this.remove_track = this.remove_track.bind(this)
+    this.findSongs = this.findSongs.bind(this)
   }
 
 
@@ -29,18 +35,49 @@ class PlaylistForm extends React.Component {
     return (e) => {
       e.preventDefault()
       //get playlist details
-      //get songs
+      let submission = {
+        title: this.state.title,
+        description: this.state.description,
+        picture_url: this.state.picture_url,
+        tags: this.parseTags(this.state.tags),
+        songs: this.state.songs
+      }
       //push to cloudinary
+
       //put data in DB
-      //redirect to show
+      this.props.createPlaylist(submission)
     };
+  }
+
+
+  parseTags(tags) {
+    return tags.split(',');
   }
 
   update (field) {
     return (e) => {
-      this.setState({[field]: e.target.value})
-      console.log(this.state);
+      if (field === 'query') {
+        this.findSongs(e.target.value)
+      } else {
+        this.setState({[field]: e.target.value})
+      }
     };
+  }
+
+
+  findSongs(query) {
+    if (query === "") {
+      this.setState({searchResults: []})
+    }
+    let result = $.ajax({
+      url: `api/songs`,
+      method: "GET",
+      data: {query},
+      dataType: "json",
+      success: (searchResults) => this.setState({searchResults})
+    })
+
+    return result;
   }
 
 
@@ -54,7 +91,7 @@ class PlaylistForm extends React.Component {
   remove_track (track_number) {
     return (e) => {
       e.preventDefault()
-      let newList = songs.filter((song, index) => index !== track_number)
+      let newList = this.state.songs.filter((song, index) => index !== track_number)
       this.setState({songs: newList})
     }
   }
@@ -78,7 +115,12 @@ class PlaylistForm extends React.Component {
 
         <PlaylistDetails update={this.update} attributes={this.state}/>
 
-        <PlaylistSongListSearch add_track={() => this.add_track} remove_track={() => this.remove_track} songs={this.state.songs} query={this.state.query}/>
+
+        <div className="row spacer">
+          <PlaylistSongList remove_track={this.remove_track} songs={this.state.songs}  update={this.update}/>
+          <PlaylistSongSearch searchResults={this.state.searchResults} query={this.state.query} update={this.update} add_track={this.add_track}/>
+        </div>
+
 
 
 

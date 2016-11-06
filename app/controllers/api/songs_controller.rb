@@ -1,6 +1,9 @@
 class Api::SongsController < ApplicationController
   def index
     @songs = Song.all
+    if (value = params[:query])
+      @songs = @songs.where("title LIKE ? OR artist LIKE ?", "%#{value}%", "%#{value}%")
+    end
   end
 
   def show
@@ -11,15 +14,15 @@ class Api::SongsController < ApplicationController
   def create
     @song = Song.create(song_params)
     if @song.save
-      #would I be saving to cloudinary here??
+      render show
+    else
+      render json: ["Invalid song"], status: 401
     end
   end
 
   private
 
   def song_params
-    params.permit(:song).require(:picture_url, :url)
+    params.permit(:song).require(:url)
   end
 end
-
-#take out picture_url

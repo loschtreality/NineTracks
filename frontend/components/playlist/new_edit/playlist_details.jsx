@@ -23,7 +23,7 @@ class PlaylistDetails extends React.Component {
               <div id="upload_cover_art_buttons">
                 <form className="img_upload_form">
                   <div id="upload_form_url">
-                    <input id="url_sub" placeholder="Enter URL Here" type="text"></input>
+                    <input id="url_sub" onChange={this.props.update('url')} placeholder="Enter URL Here" type="text"></input>
                   </div>
                   <div className="col-md-12 col-lg-12">
                     <a href="#" className="flatbutton upload_button">Upload Image</a>

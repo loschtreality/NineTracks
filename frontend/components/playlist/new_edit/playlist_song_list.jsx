@@ -1,44 +1,9 @@
 import React, { PropTypes } from 'react'
 
-class SongListSearch extends React.Component {
+class PlaylistSongListSearch extends React.Component {
   constructor (props) {
     super(props)
 
-  }
-
-
-
-
-
-  findSongs(query) {
-    //dispatch actions to get songs
-  }
-
-
-  renderSearchResults (query) {
-    if (query === "") {
-      return (
-        <li className="clear track">
-        </li>
-      )
-    }
-
-    let tracks = this.findSongs(query)
-
-    return tracks.map((track, index) => {
-      return (
-        <li className="clear track">
-          <span className="number">{index + 1}</span>
-          <div className="track_info">
-            <span className="track_name">{track.title}</span>
-            <span className="track_artist">{track.artist}</span>
-          </div>
-          <div>
-            <button onClick={this.props.add_track(track)} className="add_track">Add to Playlist</button>
-          </div>
-        </li>
-      )
-    })
   }
 
 
@@ -53,7 +18,7 @@ class SongListSearch extends React.Component {
     return songs.map((song, index) => {
       let isEven = index % 2 === 0
         if (isEven) {
-          return (<li className="even clear track">
+          return (<li key={index} className="even clear track">
             <span className="number">{index + 1}</span>
             <div className="track_info">
               <span className="track_name">{song.title}</span>
@@ -64,7 +29,7 @@ class SongListSearch extends React.Component {
             </div>
           </li>)
         } else {
-          return (<li className="odd clear track">
+          return (<li key={index} className="odd clear track">
             <span className="number">{index + 1}</span>
             <div className="track_info">
               <span className="track_name">{song.title}</span>
@@ -83,7 +48,6 @@ class SongListSearch extends React.Component {
 
   render () {
     return (
-      <div className="row spacer">
         <div className="col-lg-6 col-md-6 col-xs-12" id="upload_tracks">
           <div id="track_upload_header">
             <div id="track_count">
@@ -99,25 +63,8 @@ class SongListSearch extends React.Component {
             </ul>
           </div>
         </div>
-
-
-
-        <div className="col-lg-6 col-md-6 col-xs-12">
-
-          <div id="track_upload_header">
-              <input placeholder="Search Tracks" id="search_tracks" className="roundText" type="search"></input>
-          </div>
-
-          <div id="track_items">
-            <ul className="track_list">
-              {this.renderSearchResults(this.props.query)}
-            </ul>
-          </div>
-
-        </div>
-      </div>
     );
   }
 }
 
-export default SongListSearch;
+export default PlaylistSongListSearch;

@@ -52,7 +52,7 @@ module.exports = {
       PlaylistMiddleware: "frontend/middleware/playlist_middleware.js",
       PlaylistReducer: "frontend/reducers/playlist_reducer.js",
       PlaylistSmall: "frontend/components/playlist/playlist_small.jsx",
-      PlaylistSongListSearch: "frontend/components/playlist/new_edit/playlist_songs_list_search.jsx",
+      PlaylistSongList: "frontend/components/playlist/new_edit/playlist_songs_list_search.jsx",
       PlaylistUtils: "frontend/util/playlist_util.js",
       RootComponent: "frontend/components/root.jsx",
       RootReducer: "frontend/reducers/root_reducer.js",

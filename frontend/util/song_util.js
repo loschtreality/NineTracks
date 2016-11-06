@@ -1,4 +1,4 @@
-export const fetchSongs = (song, success, error) => {
+export const fetchSongs = (success, error) => {
   $.ajax({
     url: `api/songs`,
     method: "GET",

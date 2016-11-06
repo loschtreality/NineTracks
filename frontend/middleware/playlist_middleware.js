@@ -17,11 +17,18 @@ import {
   fetchPlaylist
 } from "PlaylistUtils"
 
+import { hashHistory } from 'react-router'
+
 const PlaylistsMiddleware = (store) => (next) => (action) => {
   let error = (e) => console.log(e.responseJSON);
   let receivePlaylistSuccess = (playlist) => store.dispatch(receivePlaylist(playlist))
   let receiveAllPlaylistsSuccess = (playlist) => store.dispatch(receiveAllPlaylists(playlist))
   let removePlaylistSuccess = (playlist) => store.dispatch(removePlaylist(playlist))
+
+  let createUpdatePostSuccess = (playlist) => {
+    dispatch(receivePlaylist(playlist))
+    hashHistory.push(`api/playlists/${playlist.id}`)
+  }
 
   switch (action.type) {
     case FETCH_PLAYLISTS:
@@ -31,10 +38,10 @@ const PlaylistsMiddleware = (store) => (next) => (action) => {
     fetchPlaylist(action.id, receivePlaylistSuccess)
       return next(action);
     case CREATE_PLAYLIST:
-    createPlaylist(action.playlist, receivePlaylistSuccess)
+    createPlaylist(action.playlist, createUpdatePostSuccess)
       return next(action);
       case UPDATE_PLAYLIST:
-    updatePlaylist(action.playlist, receivePlaylistSuccess)
+    updatePlaylist(action.playlist, createUpdatePostSuccess)
       return next(action);
     case DELETE_PLAYLIST:
     deletePlaylist(action.playlist, removePlaylistSuccess)

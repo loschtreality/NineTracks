@@ -14,7 +14,7 @@ class UploadButton extends React.Component {
 
   render () {
     return (
-      <button onClick={this.upload}>Upload Song</button>
+      <a className="flatbutton" onClick={this.upload}>Upload Song</button>
     );
   }
 }

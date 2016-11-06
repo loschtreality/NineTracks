@@ -26,9 +26,9 @@ class Api::PlaylistsController < ApplicationController
 
         # Add photo to cloud if passed in
 
-        unless @playlist.picture_url.nil?
-          #upload to cloudinary
-        end
+        # unless @playlist.picture_url.nil?
+        #   #upload to cloudinary
+        # end
 
     else
       render json: ["Invalid playlist"], status: 401
