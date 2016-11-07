@@ -12,8 +12,9 @@
 }
 
 .upload-container {
-  background-image: image-url('default_pic.jpg');
+  background-image: url('http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg');
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 #instructions {

@@ -2,3 +2,72 @@
   padding-left: 0px;
   padding-right: 0px;
 }
+
+#comments_header {
+  line-height: 30px;
+  font-weight: bold;
+  color: #666;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.15em;
+  font-size: 15px;
+}
+
+
+#new_comment_form {
+
+}
+
+.user_comment {
+  position: relative;
+
+}
+
+.new_comment {
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding-top: 17px;
+  padding-right: 60px;
+  border: 0 none;
+
+}
+
+
+.new_review {
+  padding-top: 17px;
+  padding-right: 60px;
+  border: 0 none;
+  background: transparent;
+  color: #656565;
+  display: block;
+  width: 100%;
+  height: 60px;
+  z-index: 2;
+  position: relative;
+  resize: none;
+}
+
+.user_review {
+  font-size: 14px;
+  display: block;
+  padding: 15px 0px 15px 0px;
+  position: relative;
+}
+
+.review_comment {
+  padding-left: 60px;
+  position: relative;
+  clear: both;
+  width: 100%;
+}
+
+
+.review_comment_body {
+  line-height: 19px;
+  color: #666;
+  word-wrap: break-word;
+  padding: 2px 0;
+    p {
+      display: inline;
+    }
+}

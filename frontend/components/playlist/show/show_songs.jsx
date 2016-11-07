@@ -34,6 +34,28 @@ class ShowSongs extends React.Component {
                   </div>
                 </div>
               </li>
+              <li className="played_track">
+                <div className="track_details_container">
+                  <div>
+                    <div className="title_artist">
+                      <span className="title">Great Songs</span>
+                      <span className="by_artist">by</span>
+                      <span className="artist">Great People</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li className="played_track">
+                <div className="track_details_container">
+                  <div>
+                    <div className="title_artist">
+                      <span className="title">Great Songs</span>
+                      <span className="by_artist">by</span>
+                      <span className="artist">Great People</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
 
             </ul>
 
