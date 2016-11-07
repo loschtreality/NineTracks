@@ -1,0 +1,134 @@
+#playbar {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 60px;
+  user-select: none;
+  background-color: $alt-background;
+}
+
+#player_controlls {
+  padding-left: 136px;
+  padding-right: 0px;
+  position: relative;
+  margin: 5px -5px;
+  height: 50px;
+  color: #fafafa;
+}
+
+#player_controlls_left {
+  padding: 10px 0;
+  position: absolute;
+  left: 0;
+  width: 136px;
+}
+
+.player_button {
+  display: block;
+  float: left;
+  min-width: 22px;
+  font-size: 22px;
+  margin-right: 6px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+#play-icon::before{
+
+}
+#pause-icon::before{
+
+}
+#next-icon::before{
+
+}
+
+
+#player_progress_bar {
+  opacity: .99;
+  background: rgba(30,30,30,0.4);
+  border-radius: 30px;
+  padding: 4px 15px;
+  box-shadow: inset 0 0 3px rgba(30,30,30,0.2);
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+
+// CHANGE WIDTH TO DYNAMICALLY CHANGE WITH SONG PROGRESSION. DO THIS % BASED
+#player_bar_meter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(200,200,200,0.15);
+  height: 100%;
+  transition: width 1s linear;
+  border-radius: 30px 0 0 30px;
+  width: 70px;
+}
+
+
+// #now_playing {
+//   list-style: none;
+//   margin-bottom: 0.9em;
+//   transition: opacity 0.2s linear;
+//   opacity: 1.0;
+//   position: relative;
+//   padding-left: 44px;
+// }
+
+// .now_playing {
+//   color: #333;
+// }
+
+
+// .track_details_container {
+//   width: 100%;
+// }
+//
+//
+// .title_container {
+//   width: 86%;
+//   overflow: hidden;
+//   position: absolute;
+//   height: 20px;
+//   top: 4px;
+//   left: 0;
+// }
+//
+//
+// .title_artist {
+//   position: absolute;
+//   white-space: nowrap;
+//   color: #eee;
+//   line-height: 17px;
+//   font-size: 12px;
+// }
+//
+//
+// .song_title {
+//   font-weight: bold;
+//   margin-right: 5px;
+// }
+//
+// .song_spacer {
+//
+// }
+//
+// .song_artist {
+//
+// }
+
+
+#player_controlls_right {
+  position: absolute;
+  right: 0;
+  bottom: 25%;
+  display: block;
+  width: 100px;
+  background-color: red;
+  height: 30px;
+}

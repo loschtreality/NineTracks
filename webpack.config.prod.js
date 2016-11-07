@@ -37,11 +37,16 @@ module.exports = {
     alias: {
       AppComponent: "frontend/components/app.jsx",
       AuthDrop: "frontend/components/navigation/auth_drop.jsx",
+      Cloud: "frontend/components/cloud/cloud.jsx",
       Home: "frontend/components/home/home.jsx",
       HomeContainer: "frontend/components/home/home_container.js",
       Nav: "frontend/components/navigation/nav.jsx",
       NavigationContainer: "frontend/components/navigation/navigation_container.js",
+      PictureActions: "frontend/actions/picture_actions.js",
+      PlayBar: "frontend/components/playbar/playbar.jsx",
+      PlayBarContainer: "frontend/components/playbar/playbar_container.js",
       PlaylistActions: "frontend/actions/playlist_actions.js",
+      PlaylistComments: "frontend/components/playlist/show/playlist_comments.jsx",
       PlaylistDetails: "frontend/components/playlist/new_edit/playlist_details.jsx",
       PlaylistFeed: "frontend/components/playlist/feed/playlist_feed.jsx",
       PlaylistFeedContainer: "frontend/components/playlist/feed/playlist_feed_container.js",
@@ -52,7 +57,8 @@ module.exports = {
       PlaylistMiddleware: "frontend/middleware/playlist_middleware.js",
       PlaylistReducer: "frontend/reducers/playlist_reducer.js",
       PlaylistSmall: "frontend/components/playlist/playlist_small.jsx",
-      PlaylistSongList: "frontend/components/playlist/new_edit/playlist_songs_list_search.jsx",
+      PlaylistSongList: "frontend/components/playlist/new_edit/playlist_song_list.jsx",
+      PlaylistSongSearch: "frontend/components/playlist/new_edit/playlist_song_search.jsx",
       PlaylistUtils: "frontend/util/playlist_util.js",
       RootComponent: "frontend/components/root.jsx",
       RootReducer: "frontend/reducers/root_reducer.js",
@@ -65,7 +71,14 @@ module.exports = {
       SessionMiddleware: "frontend/middleware/session_middleware.js",
       SessionUtils: "frontend/util/session_api_util.js",
       SessionReducer: "frontend/reducers/session_reducer.js",
-      Store: "frontend/store/store.js"
+      ShowSongs: "frontend/components/playlist/show/show_songs.jsx",
+      SongActions: "frontend/actions/song_actions.js",
+      SongMiddleware: "frontend/middleware/song_middleware.js",
+      SongReducer: "frontend/reducers/song_reducer.js",
+      SongUtils: "frontend/util/song_util.js",
+      Store: "frontend/store/store.js",
+      UploadSongButton: "frontend/components/cloud/upload_song_button.jsx",
+      UploadPicButton: "frontend/components/cloud/upload_pic_button.jsx"
     },
     extensions: ["", ".js", ".jsx"]
   }

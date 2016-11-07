@@ -21,8 +21,8 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <nav className="navbar navbar-inverse">
-        <div className="container-fluid">
+      <nav className="navbar navbar-inverse" id="navigation" data-spy="affix" data-offset-top="100">
+        <div className="container-fluid" >
 
 
 

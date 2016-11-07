@@ -18,6 +18,8 @@ module.exports = {
       Nav: "frontend/components/navigation/nav.jsx",
       NavigationContainer: "frontend/components/navigation/navigation_container.js",
       PictureActions: "frontend/actions/picture_actions.js",
+      PlayBar: "frontend/components/playbar/playbar.jsx",
+      PlayBarContainer: "frontend/components/playbar/playbar_container.js",
       PlaylistActions: "frontend/actions/playlist_actions.js",
       PlaylistComments: "frontend/components/playlist/show/playlist_comments.jsx",
       PlaylistDetails: "frontend/components/playlist/new_edit/playlist_details.jsx",
