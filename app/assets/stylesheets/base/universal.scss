@@ -1,3 +1,4 @@
+// a tags big
 .flatbutton {
   cursor: pointer;
   background: $alt-background;
@@ -22,18 +23,51 @@
   padding: 8px;
 }
 
+// a tags small
+.tag {
+  padding: 10px 18px;
+  margin: 0 8px 8px 0;
+  border: 1px solid #eee;
+  border-radius: 30px;
+  display: inline-block;
+  color: #666;
+  white-space: nowrap;
+}
+
+// div containing actions/buttons
+.interactbox {
+  color: #999;
+  background: rgba(0,0,0,0.3);
+  transition: background-color 0.3s linear;
+  padding: 10px;
+  border-radius: 50px;
+  min-height: 60px;
+}
+
+
+// block div containing elements
+.card {
+  background: #fff;
+  display: block;
+  padding: 10px;
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid #e5e5e5;
+}
+
 // Div class element
 .step {
   position: relative;
   margin-top: 20px;
 }
 
+// alteration of clearfix
 .clear {
   display: inline-block;
   clear: both;
 }
 
-
+// add spacing on top of .rows
 .spacer {
     margin-top: 20px;
 }

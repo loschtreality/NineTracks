@@ -20,7 +20,7 @@
   margin: 10px;
   color: $primary-accent;
   b {
-    color: $alternate
+    color: $secondary
   }
 }
 
@@ -115,7 +115,7 @@
 #track_count {
   float: right;
   font-size: 18px;
-  color: $alternate;
+  color: $secondary;
 }
 
 #length {
@@ -166,7 +166,7 @@
 }
 
 .even {
-  background-color: $alternate-accent;
+  background-color: $secondary-accent;
 }
 
 .odd {

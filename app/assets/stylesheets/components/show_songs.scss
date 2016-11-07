@@ -1,0 +1,66 @@
+.byeline {
+  margin: 2px 0px 0px 2px;
+}
+
+.propername {
+  margin-left: 5px;
+  font-weight: bold;
+  color: $secondary;
+  cursor: pointer;
+}
+
+.divide {
+  border-width: 2px 0 0 0;
+  margin: 10px -10px 20px;
+}
+
+#playlist_details {
+  font-size: 15px;
+  line-height: 17px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.15em
+}
+
+#playlist_description {
+  margin-bottom: 20px;
+  p {
+    margin-bottom: 0.9em;
+  }
+}
+
+
+#song_list_wrapper {
+  padding-top: 10px;
+}
+
+#played_tracks {
+  list-style-type: none;
+  margin-left: 0;
+  margin-bottom: 0.9em;
+  list-style: none;
+}
+
+.played_track {
+  border-bottom: 1px solid #f7f7f7;
+  padding: 10px 0px 10px 0px;
+  color: #777;
+  margin: 0px;
+}
+
+.track_details_container {
+  padding-left: 15px;
+}
+
+.title_artist {
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+
+.by_artist {
+  display: inline;
+  font-style: italic;
+  margin: 0 7px;
+}

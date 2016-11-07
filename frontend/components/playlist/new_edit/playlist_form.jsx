@@ -34,14 +34,15 @@ class PlaylistForm extends React.Component {
 
     return (e) => {
       e.preventDefault()
+      let parse_tags = this.parseTags(this.state.tags)
       let submission = {
         title: this.state.title,
         description: this.state.description,
         picture_url: this.state.picture_url,
-        tags: this.parseTags(this.state.tags),
+        tags: parse_tags,
         songs: this.state.songs
       }
-
+      debugger;
       if (type === "new") {
         console.log(submission, "submission");
         this.props.createPlaylist(submission)

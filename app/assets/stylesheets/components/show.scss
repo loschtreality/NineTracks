@@ -1,0 +1,73 @@
+#display_area {
+  min-height: 350px;
+  background-color: $primary-accent;
+}
+// 'Proxima Nova', helvetica, arial, sans-serif; body
+
+#mix_details {
+  position: relative;
+  min-height: 200px;
+  word-wrap: break-word;
+}
+
+#mix_name {
+  font-weight: 900px;
+  margin-bottom: .2em;
+  font-size: 42px;
+  line-height: 48px;
+}
+
+#mix_description {
+  display: block;
+
+}
+
+#mix_art_wrapper {
+  float: left;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#cover_art {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.mix-data {
+  padding-bottom: 10px;
+}
+
+.pipe {
+  margin: 0 10px;
+}
+
+#mix_tags_display {
+  display: block;
+  a {
+    background: rgba(225,225,225,0.5);
+    border: 0px none;
+    color: white;
+  }
+}
+
+
+#mix_buttons {
+  display: inline-block;
+  margin: 20px auto 0;
+  padding-right: 0px;
+  position: relative;
+}
+
+
+.interactbox .flatbutton {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+.like::before{
+  content: open-quote;
+}

@@ -19,7 +19,7 @@ class Api::PlaylistsController < ApplicationController
         if tag.save
           Tagging.create(playlist_id: @playlist.id, tag_id: tag.id)
         else
-          tag = Tag.find_by(title: @playlist.title)
+          tag = Tag.find_by(title: @playlist.title.downcase)
           Tagging.create(playlist_id: @playlist.id, tag_id: tag.id)
         end
 
@@ -53,6 +53,6 @@ class Api::PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:title, :description, :picture_url, tag_ids: [])
+    params.require(:playlist).permit(:title, :description, :picture_url, :tags, :songs)
   end
 end
