@@ -60,6 +60,8 @@ module.exports = {
       PlaylistSongList: "frontend/components/playlist/new_edit/playlist_song_list.jsx",
       PlaylistSongSearch: "frontend/components/playlist/new_edit/playlist_song_search.jsx",
       PlaylistUtils: "frontend/util/playlist_util.js",
+      Profile: "frontend/components/profile/profile.jsx",
+      ProfileContainer: "frontend/components/profile/profile_container.js",
       RootComponent: "frontend/components/root.jsx",
       RootReducer: "frontend/reducers/root_reducer.js",
       RootMiddleware: "frontend/middleware/root_middleware.js",
@@ -77,7 +79,6 @@ module.exports = {
       SongReducer: "frontend/reducers/song_reducer.js",
       SongUtils: "frontend/util/song_util.js",
       Store: "frontend/store/store.js",
-      UploadSongButton: "frontend/components/cloud/upload_song_button.jsx",
       UploadPicButton: "frontend/components/cloud/upload_pic_button.jsx"
     },
     extensions: ["", ".js", ".jsx"]

@@ -3,6 +3,9 @@
   z-index: 10;
   background-image: url('http://res.cloudinary.com/loren-losch/image/upload/v1478486681/record_l9qrzy.gif');
   background-size: 100% 100%;
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .banner-container {
@@ -14,4 +17,10 @@
 
 .banner-text {
   font-size: -webkit-xxx-large;
+}
+
+.home-wrapper {
+  padding-left: 0;
+  padding-right: 0;
+  overflow-x: hidden;
 }
