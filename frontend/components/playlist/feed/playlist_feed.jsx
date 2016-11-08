@@ -2,21 +2,32 @@ import React, { PropTypes } from 'react'
 import PlaylistSmall from 'PlaylistSmall'
 
 class PlaylistFeed extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount () {
-    if (this.props.playlists) {
-      this.props.fetchPlaylists()
-    }
+    this.props.fetchPlaylists()
   }
 
   render () {
-
+    if (this.props.playlists[1] === undefined) {
+      return (<div>Loading...</div>)
+    } else {
     return (
-      <div>
-        <h3>Here is the feed and below is a tiny playlist</h3>
-        <PlaylistSmall/>
+      <div className="container">
+        <div className="row step">
+          <div className="col-md-12">
+            {
+              this.props.playlists.map((playlist) => {
+                return <PlaylistSmall key={playlist.id} playlist={playlist}/>
+              })
+            }
+          </div>
+        </div>
       </div>
     );
+    }
   }
 }
 

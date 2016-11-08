@@ -18,6 +18,7 @@ const defaultState = {
 
 
 const PlaylistReducer = (oldState = defaultState, action) => {
+  Object.freeze(oldState)
   switch (action.type) {
     case RECEIVE_ALL_PLAYLISTS:
       return merge({}, action.playlists);

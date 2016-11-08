@@ -1,0 +1,70 @@
+.card {
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  position: relative;
+  border: 1px solid #e5e5e5;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.mix_card {
+  padding: 10px 10px 50px 10px;
+  min-height: 275px;
+}
+
+.half_card {
+  width: auto;
+  float: none;
+  margin: 0 -15px 20px -15px;
+}
+
+.mini_header {
+  position: relative;
+  min-height: 64px;
+  max-height: 64px;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  margin: -10px -10px 0 -10px;
+}
+
+
+.mix_element {
+  position: relative;
+  word-wrap: break-word;
+  padding: 10px 0;
+  height: 255px;
+  overflow: hidden;
+  padding-left: 260px;
+}
+
+
+.cover {
+  position: absolute;
+  left: 0;
+  width: 245px;
+  height: 245px;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+.title_min {
+  color: black;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 26px;
+  margin-bottom: 0.2em;
+}
+
+
+.frontside {
+  height: 0;
+  overflow: visible;
+}
+
+
+.tags {
+  min-height: 117px;
+  overflow: hidden;
+  transition: opacity 0.1s linear;
+}

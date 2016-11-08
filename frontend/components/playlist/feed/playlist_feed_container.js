@@ -2,9 +2,12 @@ import { connect } from 'react-redux'
 import {fetchPlaylists} from 'PlaylistActions'
 import PlaylistFeed from 'PlaylistFeed'
 
-const mapStateToProps = (state, ownProps) => ({
-  playlists: state.playlists
-})
+const mapStateToProps = (state, ownProps) =>{
+  debugger
+  return ({
+    playlists: Object.keys(state.playlists).map((id) => state.playlists[id])
+  })
+}
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPlaylists: () => dispatch(fetchPlaylists())

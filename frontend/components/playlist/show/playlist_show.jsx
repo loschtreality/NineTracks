@@ -1,17 +1,36 @@
 import React, { PropTypes } from 'react'
 import PlaylistComments from 'PlaylistComments'
 import ShowSongs from 'ShowSongs'
+import { Link } from 'react-router'
 
 class PlaylistShow extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = {}
   }
 
   componentDidMount () {
     this.props.fetchPlaylist(this.props.params.id)
-    console.log(this.props.playlist, "PLAYLIST FROM SHOW");
+  }
+
+  showOption() {
+    let option;
+      if (window.currentUser.username === this.props.playlist.username) {
+      option = (
+          <div id="mix_buttons" className="interactbox">
+            <Link id="edit_button" to={`playlists/${this.props.playlist.id}/edit`} className="flatbutton">
+              Edit Playlist
+            </Link>
+          </div>
+        )
+      } else {
+          option = <span style={{display: "hidden"}}></span>
+      }
+      return option
+  }
+
+
+  componentWillReceiveProps() {
+    this.showOption()
   }
 
 
@@ -23,23 +42,7 @@ class PlaylistShow extends React.Component {
       )
 
     } else {
-
-      let option
-      if (currentUser === this.props.playlist.id) {
-        option = (
-          <a id="edit_button" className="flatbutton">
-            Edit Playlist
-          </a>
-        )
-      } else {
-        option = (
-          <a id="like_button" className="flatbutton">
-            <span className="like">{"<3"}</span>
-            <span className="text hidden-xs hidden-sm">LIKE</span>
-          </a>
-        )
-      }
-
+      console.log(this.props.playlist, "PLAYLIST FROM SHOW");
 
     return (
       <div className='container-fluid show-content'>
@@ -74,9 +77,7 @@ class PlaylistShow extends React.Component {
                         </div>
                       </div>
 
-                      <div id="mix_buttons" className="interactbox">
-                        {option}
-                      </div>
+                      {this.showOption()}
 
                   </div>
                 </div>
@@ -93,6 +94,5 @@ class PlaylistShow extends React.Component {
     }
   }
 }
-// <PlaylistComments comments={this.props.playlist.comments}/>
 
 export default PlaylistShow;

@@ -54,7 +54,6 @@ module.exports = {
       SongReducer: "frontend/reducers/song_reducer.js",
       SongUtils: "frontend/util/song_util.js",
       Store: "frontend/store/store.js",
-      UploadSongButton: "frontend/components/cloud/upload_song_button.jsx",
       UploadPicButton: "frontend/components/cloud/upload_pic_button.jsx"
     },
     extensions: ['', '.js', '.jsx']

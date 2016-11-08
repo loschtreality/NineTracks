@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import {fetchPlaylist, createPlaylist, updatePlaylist} from 'PlaylistActions'
+import {fetchPlaylist, createPlaylist, updatePlaylist, deletePlaylist} from 'PlaylistActions'
 import { fetchSongs } from 'SongActions'
 import PlaylistForm from 'PlaylistForm'
 
@@ -16,7 +16,8 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPlaylist: (playlist) => dispatch(fetchPlaylist(playlist)),
   createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
   updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
-  fetchSongs: () => dispatch(fetchSongs())
+  fetchSongs: () => dispatch(fetchSongs()),
+  deletePlaylist: (id) => dispatch(deletePlaylist(id))
 })
 
 export default connect(

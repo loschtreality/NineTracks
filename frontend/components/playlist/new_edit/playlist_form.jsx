@@ -10,16 +10,15 @@ import merge from 'lodash/merge'
 class PlaylistForm extends React.Component {
   constructor (props) {
     super(props)
-    //If this is an edit, render a delete button
-      //delete redirects to user/show page
 
     this.state = merge({type: this.props.type, title: "Untitled Playlist", description: "", tags: "", picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg", songs: [], query: "", searchResults: []}, this.props.playlist)
-    debugger
+
     this.update = this.update.bind(this)
     this.cloudUpdate = this.cloudUpdate.bind(this)
     this.add_track = this.add_track.bind(this)
     this.remove_track = this.remove_track.bind(this)
     this.findSongs = this.findSongs.bind(this)
+    this.handle_delete = this.handle_delete.bind(this)
   }
 
 
@@ -59,10 +58,16 @@ class PlaylistForm extends React.Component {
           tags: this.state.tags,
           songs: this.state.songs
         }
-        console.log(update_submission, "update_submission");
         this.props.updatePlaylist(update_submission)
       }
     };
+  }
+
+
+  handle_delete(e) {
+    e.preventDefault()
+    this.props.deletePlaylist(this.props.playlist.id)
+    hashHistory.push("feed")
   }
 
 
@@ -118,6 +123,13 @@ class PlaylistForm extends React.Component {
     }
   }
 
+
+  deleteButton() {
+    if (currentUser.username === this.props.playlist.username) {
+      return (<a href="#" id="delete_playlist" onClick={this.handle_delete} className="flatbutton">Delete Playlist</a>)
+    }
+  }
+
   render () {
     return (
       <div className="container-fluid">
@@ -132,6 +144,7 @@ class PlaylistForm extends React.Component {
 
           <div className="col-md-5 col-md-offset-3">
               <a href="#" id="save_playlist" onClick={this._handleSubmit(this.state.type)} className="flatbutton">Save & Close</a>
+              {this.deleteButton()}
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import ReactPlayer from 'react-player'
 
 import merge from 'lodash/merge'
 
@@ -10,15 +11,21 @@ class PlayBar extends React.Component {
   }
 
   play_song() {
-
+    this.setState({playing: true})
   }
 
   pause_song() {
-
+    this.setState({playing: false})
   }
 
   next_song() {
+    let nextSong = this.state.currentSong + 1
+    if (nextSong < this.state.playlist.songs.length) {
+      this.setState({currentSong: nextSong})
 
+    } else {
+      this.setState({playing: false})
+    }
   }
 
 
@@ -27,8 +34,6 @@ class PlayBar extends React.Component {
       width: this.state.progress,
       background: "#528C94"
     };
-
-
 
     return (
       <div id="playbar" className="" data-spy="affix" data-offset-bottom="0">
@@ -55,6 +60,13 @@ class PlayBar extends React.Component {
               </div>
             </div>
 
+            <ReactPlayer
+              url={this.state.songs[this.state.currentSong].url}
+              playing={this.state.playing}
+              hidden={true}
+              onProgress={this.moveProgess}
+              onEnded={this.nextSong}
+               />
           </div>
         </div>
       </div>

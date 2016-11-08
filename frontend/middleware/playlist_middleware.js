@@ -32,19 +32,19 @@ const PlaylistsMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case FETCH_PLAYLISTS:
-    fetchPlaylists(receiveAllPlaylistsSuccess)
+    fetchPlaylists(receiveAllPlaylistsSuccess, error)
       return next(action);
     case FETCH_PLAYLIST:
-    fetchPlaylist(action.id, receivePlaylistSuccess)
+    fetchPlaylist(action.id, receivePlaylistSuccess, error)
       return next(action);
     case CREATE_PLAYLIST:
-    createPlaylist(action.playlist, createUpdatePostSuccess)
+    createPlaylist(action.playlist, createUpdatePostSuccess, error)
       return next(action);
       case UPDATE_PLAYLIST:
-    updatePlaylist(action.playlist, createUpdatePostSuccess)
+    updatePlaylist(action.playlist, createUpdatePostSuccess, error)
       return next(action);
     case DELETE_PLAYLIST:
-    deletePlaylist(action.playlist, removePlaylistSuccess)
+    deletePlaylist(action.id, removePlaylistSuccess, error)
       return next(action);
     default:
       return next(action);
