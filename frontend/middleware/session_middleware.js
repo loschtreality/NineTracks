@@ -13,11 +13,16 @@ import {
     logout
 } from 'SessionUtils';
 
+import {hashHistory} from 'react-router'
+
 export default ({getState,dispatch}) => next => action => {
 
     const handleSuccess = user => dispatch(receiveCurrentUser(user));
     const handleError = error => dispatch(receiveErrors(error.responseJSON));
-    const handleLogoutSuccess = () => dispatch(receiveLogoutSuccess());
+    const handleLogoutSuccess = () => {
+      dispatch(receiveLogoutSuccess());
+      hashHistory.push('/')
+    }
 
     switch (action.type) {
         case LOGIN:

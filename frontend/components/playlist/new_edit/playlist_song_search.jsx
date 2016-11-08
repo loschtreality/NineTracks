@@ -20,10 +20,11 @@ class PlaylistSongSearch extends React.Component {
           <span className="number">{index + 1}</span>
           <div className="track_info">
             <span className="track_name">{track.title}</span>
+            <span className="by_separator">by</span>
             <span className="track_artist">{track.artist}</span>
           </div>
           <div>
-            <button onClick={this.props.add_track(track)} className="add_track">Add to Playlist</button>
+            <button onClick={this.props.add_track(track)} className="add_track flatbutton">Add to Playlist</button>
           </div>
         </li>
       )

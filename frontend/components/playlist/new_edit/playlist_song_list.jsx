@@ -22,10 +22,11 @@ class PlaylistSongListSearch extends React.Component {
             <span className="number">{index + 1}</span>
             <div className="track_info">
               <span className="track_name">{song.title}</span>
+              <span className="by_separator">by</span>
               <span className="track_artist">{song.artist}</span>
             </div>
             <div>
-              <button onClick={this.props.remove_track(index)} className="remove_track">Delete</button>
+              <button onClick={this.props.remove_track(index)} className="remove_track flatbutton">Delete</button>
             </div>
           </li>)
         } else {
@@ -33,10 +34,11 @@ class PlaylistSongListSearch extends React.Component {
             <span className="number">{index + 1}</span>
             <div className="track_info">
               <span className="track_name">{song.title}</span>
+              <span className="by_separator">by</span>
               <span className="track_artist">{song.artist}</span>
             </div>
             <div>
-              <button onClick={this.props.remove_track(index)} className="remove_track">Delete</button>
+              <button onClick={this.props.remove_track(index)} className="remove_track flatbutton">Delete</button>
             </div>
           </li>)
 

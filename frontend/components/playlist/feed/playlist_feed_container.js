@@ -3,7 +3,6 @@ import {fetchPlaylists} from 'PlaylistActions'
 import PlaylistFeed from 'PlaylistFeed'
 
 const mapStateToProps = (state, ownProps) =>{
-  debugger
   return ({
     playlists: Object.keys(state.playlists).map((id) => state.playlists[id])
   })

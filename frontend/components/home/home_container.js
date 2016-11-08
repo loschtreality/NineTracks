@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
   for (var i = 1; i <= limit; i++) {
     state_prop.push(state.playlists[i])
   }
-  debugger
+
   return ({
     playlists: state_prop
   });

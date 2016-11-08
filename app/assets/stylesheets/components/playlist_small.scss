@@ -1,6 +1,7 @@
 .card {
   width: 100%;
-  background: #fff;
+  background: $alt-background;
+  color: $primary-grey;
   padding: 10px;
   position: relative;
   border: 1px solid #e5e5e5;
@@ -21,6 +22,7 @@
 
 .mini_header {
   position: relative;
+  background: $primary-accent;
   min-height: 64px;
   max-height: 64px;
   border-bottom: 1px solid #ccc;
@@ -67,4 +69,13 @@
   min-height: 117px;
   overflow: hidden;
   transition: opacity 0.1s linear;
+}
+
+
+.tags {
+
+
+  .tag {
+    margin-top: 5px;
+  }
 }
