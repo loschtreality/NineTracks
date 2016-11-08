@@ -7,7 +7,13 @@ import {
 import merge from 'lodash/merge'
 
 const defaultState = {
-
+  0: {
+    title: "Untitled Playlist",
+    description: "",
+    tags: [],
+    picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
+    songs: []
+  }
 }
 
 

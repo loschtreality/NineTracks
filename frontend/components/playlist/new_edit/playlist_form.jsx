@@ -13,8 +13,8 @@ class PlaylistForm extends React.Component {
     //If this is an edit, render a delete button
       //delete redirects to user/show page
 
-    this.state = merge({type: "new", title: "Untitled Playlist", description: "", tags: "", picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg", songs: [], query: "", searchResults: []}, this.props.playlist)
-
+    this.state = merge({type: this.props.type, title: "Untitled Playlist", description: "", tags: "", picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg", songs: [], query: "", searchResults: []}, this.props.playlist)
+    debugger
     this.update = this.update.bind(this)
     this.cloudUpdate = this.cloudUpdate.bind(this)
     this.add_track = this.add_track.bind(this)
@@ -24,9 +24,16 @@ class PlaylistForm extends React.Component {
 
 
   componentDidMount () {
-    if (this.props.playlist) {
-      this.setState({type: "edit"})
-      // have fields autofill if edit
+    if (this.props.type === "edit") {
+      this.props.fetchPlaylist(this.props.params.id)
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.type === "edit") {
+      this.setState(merge({type: this.props.type, title: "Untitled Playlist", description: "", tags: "", picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg", songs: [], query: "", searchResults: []}, newProps.playlist))
+      let parsed_tags = newProps.playlist.tags.map((tag) => { return tag.title }).join(',')
+      this.setState({tags: parsed_tags})
     }
   }
 
@@ -34,28 +41,30 @@ class PlaylistForm extends React.Component {
 
     return (e) => {
       e.preventDefault()
-      let parse_tags = this.parseTags(this.state.tags)
-      let submission = {
+      let new_submission = {
         title: this.state.title,
         description: this.state.description,
         picture_url: this.state.picture_url,
-        tags: parse_tags,
+        tags: this.state.tags,
         songs: this.state.songs
       }
-      debugger;
       if (type === "new") {
-        console.log(submission, "submission");
-        this.props.createPlaylist(submission)
+        this.props.createPlaylist(new_submission)
       } else {
-        this.props.updatePlaylist(submission)
+        let update_submission = {
+          id: this.props.playlist.id,
+          title: this.state.title,
+          description: this.state.description,
+          picture_url: this.state.picture_url,
+          tags: this.state.tags,
+          songs: this.state.songs
+        }
+        console.log(update_submission, "update_submission");
+        this.props.updatePlaylist(update_submission)
       }
     };
   }
 
-
-  parseTags(tags) {
-    return tags.split(',');
-  }
 
   update (field) {
     return (e) => {

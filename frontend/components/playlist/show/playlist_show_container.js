@@ -3,9 +3,14 @@ import {fetchPlaylist} from 'PlaylistActions'
 import PlaylistShow from 'PlaylistShow'
 
 const mapStateToProps = (state, ownProps) => {
-  return ({
+  if (state.playlists[ownProps.params.id]) {
+    return ({
       playlist: state.playlists[ownProps.params.id]
     })
+  }
+  return ({
+    playlist: state.playlists[0]
+  })
 }
 
 const mapDispatchToProps = (dispatch) => ({

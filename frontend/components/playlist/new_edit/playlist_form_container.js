@@ -5,8 +5,8 @@ import PlaylistForm from 'PlaylistForm'
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    playlist: (state.playlist === undefined ? null : state.playlist[ownProps.params.id]),
-    type: (ownProps === undefined ? "new" : "edit"),
+    playlist: (state.playlists[ownProps.params.id] ? state.playlists[ownProps.params.id] :  state.playlists[0]),
+    type: (ownProps.params.id === undefined ? "new" : "edit"),
     songs: state.songs
   })
 }

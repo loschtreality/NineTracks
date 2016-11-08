@@ -21,6 +21,12 @@ table, caption, tbody, tfoot, thead, tr, th, td {
  outline: 0;
 }
 
+html {
+  height: auto !important;
+  padding-bottom: 700px !important;
+}
+
+
 body {
  line-height: 1;
  color: black;

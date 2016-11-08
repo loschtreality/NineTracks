@@ -2,12 +2,20 @@ import React, { PropTypes } from 'react'
 
 class ShowSongs extends React.Component {
   render () {
+
+    // if (this.props.description === undefined) {
+    //   return (
+    //     <div className="loader">Loading...</div>
+    //   )
+    //
+    // } else {
+
     return (
       <div className="card">
         <div id="user_byline">
           <span className="byeline"> by
             <a className="propername">
-              Kewl Person
+              {this.props.username}
             </a>
           </span>
         </div>
@@ -15,7 +23,7 @@ class ShowSongs extends React.Component {
         <h6 id="playlist_details">Description</h6>
           <div id="playlist_description">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              {this.props.description}
             </p>
           </div>
         <hr/>
@@ -23,39 +31,23 @@ class ShowSongs extends React.Component {
           <div>
             <ul id="played_tracks">
 
-              <li className="played_track">
-                <div className="track_details_container">
-                  <div>
-                    <div className="title_artist">
-                      <span className="title">Great Songs</span>
-                      <span className="by_artist">by</span>
-                      <span className="artist">Great People</span>
+            {
+              this.props.songs.map((song) => {
+                return (
+                  <li key={song.id} className="played_track">
+                    <div className="track_details_container">
+                      <div>
+                        <div className="title_artist">
+                          <span className="title">{song.title}</span>
+                          <span className="by_artist">by</span>
+                          <span className="artist">{song.artist}</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </li>
-              <li className="played_track">
-                <div className="track_details_container">
-                  <div>
-                    <div className="title_artist">
-                      <span className="title">Great Songs</span>
-                      <span className="by_artist">by</span>
-                      <span className="artist">Great People</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="played_track">
-                <div className="track_details_container">
-                  <div>
-                    <div className="title_artist">
-                      <span className="title">Great Songs</span>
-                      <span className="by_artist">by</span>
-                      <span className="artist">Great People</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
+                  </li>
+                )
+              })
+            }
 
             </ul>
 
@@ -65,6 +57,7 @@ class ShowSongs extends React.Component {
       </div>
     );
   }
+  // }
 }
 
 export default ShowSongs;
