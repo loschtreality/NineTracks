@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import {fetchPlaylists} from 'PlaylistActions'
+import {givePlayBarPlaylist} from 'PlayBarActions'
 import PlaylistFeed from 'PlaylistFeed'
 
 const mapStateToProps = (state, ownProps) =>{
@@ -9,7 +10,8 @@ const mapStateToProps = (state, ownProps) =>{
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPlaylists: () => dispatch(fetchPlaylists())
+  fetchPlaylists: () => dispatch(fetchPlaylists()),
+  givePlayBarPlaylist: (playlist) => dispatch(givePlayBarPlaylist(playlist))
 })
 
 export default connect(

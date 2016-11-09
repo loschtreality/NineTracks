@@ -2,6 +2,19 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
 class PlaylistSmall extends React.Component {
+  constructor(props) {
+    super(props)
+
+  }
+
+  // handlePlay(play_list) {
+  //   return (e) => {
+  //     debugger
+  //     e.preventDefault()
+  //     this.props.givePlayBarPlaylist(play_list)
+  //   };
+  // }
+
   render () {
     return (
       <div className="row step">
@@ -39,7 +52,7 @@ class PlaylistSmall extends React.Component {
 
           <div className="min_control step">
             <div className="min_play">
-              <span className="glyphicon glyphicon-play min_play_button"></span>
+              <span onClick={() => this.props.givePlayBarPlaylist(this.props.playlist)} className="glyphicon glyphicon-play min_play_button"></span>
               <span className="min_button_description">Play Playlist</span>
             </div>
           </div>

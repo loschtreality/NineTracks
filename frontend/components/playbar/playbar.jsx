@@ -6,6 +6,7 @@ import merge from 'lodash/merge'
 class PlayBar extends React.Component {
   constructor (props) {
     super(props)
+
     this.state = merge({title: "", currentSong: 0, playing: false, progress: 0, showInfo: 'none', songs: [{title: "", artist: "", url: ""}]}, this.props.pb_playlist)
 
     this.playSong = this.playSong.bind(this)
@@ -14,8 +15,10 @@ class PlayBar extends React.Component {
     this.moveProgress = this.moveProgress.bind(this)
   }
 
-  componentWillReceiveProps() {
-    this.setState({display: "inline"})
+  componentWillReceiveProps(nextProps) {
+    this.setState(merge(this.state, nextProps.pb_playlist))
+    this.setState({showInfo: 'inline'})
+    this.setState({playing: true})
   }
 
   playSong() {
@@ -41,7 +44,7 @@ class PlayBar extends React.Component {
     if (this.state.songs[0] !== undefined) {
       return (
         <div className="col-md-4 col-sm-4 col-xs-4" id="center_controlls" >
-        <span id="playbar_pl_title">{this.state.title}</span>
+        <span id="playbar_pl_title" style={{color: "white"}}>{this.state.title}</span>
         <span id="playbar_title" >{this.state.songs[this.state.currentSong].title}</span>
         <span style={{display: `${this.state.showInfo}`}} id="playbar_by">by</span>
         <span id="playbar_artist">{this.state.songs[this.state.currentSong].artist}</span>
@@ -85,8 +88,6 @@ class PlayBar extends React.Component {
       width: `${this.state.progress}%`,
       background: "#528C94"
     };
-    console.log(this.state, "STATE FROM PLAYBAR");
-    console.log(this.props.pb_playlist, "PROPS PLAYBAR");
     return (
       <div id="playbar" className="" data-spy="affix" data-offset-bottom="0">
         <div id="player" className="col-lg-12 col-md-12 col-sm-12 col-xs-12">

@@ -4,6 +4,7 @@ import PlaylistSmall from 'PlaylistSmall'
 class PlaylistFeed extends React.Component {
   constructor(props) {
     super(props)
+
   }
 
   componentDidMount () {
@@ -34,6 +35,8 @@ class PlaylistFeed extends React.Component {
     // return grid;
   }
 
+
+
   render () {
 
     if (this.props.playlists[1] === undefined) {
@@ -45,7 +48,7 @@ class PlaylistFeed extends React.Component {
       <div className="container">
          {
            this.props.playlists.map((playlist) => {
-             return (<PlaylistSmall key={playlist.id} playlist={playlist}/>)
+             return (<PlaylistSmall givePlayBarPlaylist={this.props.givePlayBarPlaylist} key={playlist.id} playlist={playlist}/>)
            })
          }
       </div>
@@ -55,8 +58,3 @@ class PlaylistFeed extends React.Component {
 }
 
 export default PlaylistFeed;
-
-
-// this.props.playlists.map((playlist) => {
-//   return (<PlaylistSmall key={playlist.id} playlist={playlist}/>)
-// })
