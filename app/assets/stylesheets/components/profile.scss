@@ -3,15 +3,19 @@
 }
 
 .profile-header {
-  min-height: 300px;
-  background: $secondary-accent
+  min-height: 400px;
+  background: url('http://res.cloudinary.com/loren-losch/image/upload/c_scale,w_1190/v1478668492/pexels-photo-30222_qy0nrp.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
 #profile-username {
   font-weight: bold;
-  font-size: 40px;
-  margin-top: 30px;
+  font-size: 50px;
+  margin-top: 50px;
+  color: $secondary;
+  background-color: black;
 }
 
 .playlist-line {

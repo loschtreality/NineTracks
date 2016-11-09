@@ -1,22 +1,16 @@
 import React, { PropTypes } from 'react'
+import {Link} from 'react-router'
 
 class ShowSongs extends React.Component {
   render () {
-
-    // if (this.props.description === undefined) {
-    //   return (
-    //     <div className="loader">Loading...</div>
-    //   )
-    //
-    // } else {
 
     return (
       <div className="card">
         <div id="user_byline">
           <span className="byeline"> by
-            <a className="propername">
+            <Link to={`users/${this.props.user_id}`} className="propername">
               {this.props.username}
-            </a>
+            </Link>
           </span>
         </div>
         <hr className="divide"/>
@@ -39,7 +33,7 @@ class ShowSongs extends React.Component {
                       <div>
                         <div className="title_artist">
                           <span className="title">{song.title}</span>
-                          <span className="by_artist">by</span>
+                          <span className="by_artist">-</span>
                           <span className="artist">{song.artist}</span>
                         </div>
                       </div>

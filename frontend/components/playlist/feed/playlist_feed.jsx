@@ -48,7 +48,7 @@ class PlaylistFeed extends React.Component {
       <div className="container">
          {
            this.props.playlists.map((playlist) => {
-             return (<PlaylistSmall givePlayBarPlaylist={this.props.givePlayBarPlaylist} key={playlist.id} playlist={playlist}/>)
+             return (<PlaylistSmall givePlayBarPlaylist={this.props.givePlayBarPlaylist} user_id={playlist.user_id} key={playlist.id} playlist={playlist}/>)
            })
          }
       </div>

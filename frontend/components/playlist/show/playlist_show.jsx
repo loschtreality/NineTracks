@@ -6,6 +6,8 @@ import { Link } from 'react-router'
 class PlaylistShow extends React.Component {
   constructor(props) {
     super(props)
+
+    debugger
   }
 
   componentDidMount () {
@@ -101,7 +103,7 @@ class PlaylistShow extends React.Component {
           </div>
 
           <div className="container step">
-            <ShowSongs songs={this.props.playlist.songs} username={this.props.playlist.username} description={this.props.playlist.description}/>
+            <ShowSongs songs={this.props.playlist.songs} username={this.props.playlist.username} user_id={this.props.playlist.user_id} description={this.props.playlist.description}/>
           </div>
 
       </div>

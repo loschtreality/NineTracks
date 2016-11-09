@@ -34,7 +34,7 @@ class AuthDrop extends React.Component {
 
   specialLogin() {
     return () => {
-      this.props.login({username:"demo", password:"password"})
+      this.props.login({username:"Demo", password:"password"})
     };
   }
 

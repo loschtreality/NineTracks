@@ -4,10 +4,9 @@ import Home from 'Home'
 
 const mapStateToProps = (state) => {
   let all_PL = state.playlists
-  let limit = 9
   let state_prop = []
-  for (var i = 1; i <= limit; i++) {
-    state_prop.push(state.playlists[i])
+  for (var i = 9, j = state.playlists.length; i > 0; i--) {
+    state_prop.push(state.playlists[j - i])
   }
 
   return ({

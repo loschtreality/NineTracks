@@ -17,7 +17,10 @@ import {hashHistory} from 'react-router'
 
 export default ({getState,dispatch}) => next => action => {
 
-    const handleSuccess = user => dispatch(receiveCurrentUser(user));
+    const handleSuccess = user => {
+      dispatch(receiveCurrentUser(user))
+      hashHistory.push(`users/${user.id}`)
+    };
     const handleError = error => dispatch(receiveErrors(error.responseJSON));
     const handleLogoutSuccess = () => {
       dispatch(receiveLogoutSuccess());

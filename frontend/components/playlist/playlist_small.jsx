@@ -7,14 +7,6 @@ class PlaylistSmall extends React.Component {
 
   }
 
-  // handlePlay(play_list) {
-  //   return (e) => {
-  //     debugger
-  //     e.preventDefault()
-  //     this.props.givePlayBarPlaylist(play_list)
-  //   };
-  // }
-
   render () {
     return (
       <div className="row step">
@@ -22,7 +14,7 @@ class PlaylistSmall extends React.Component {
       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 card mix_card half_card">
 
         <div className="mini_header">
-          <h4>Published by {this.props.playlist.username}</h4>
+          <h4>Published by <Link to={`users/${this.props.user_id}`}>{this.props.playlist.username}</Link></h4>
         </div>
 
         <div className="mix_element">
