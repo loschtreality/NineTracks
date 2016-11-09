@@ -25,6 +25,15 @@ class PlaylistForm extends React.Component {
   componentDidMount () {
     if (this.props.type === "edit") {
       this.props.fetchPlaylist(this.props.params.id)
+    } else {
+      this.setState({
+        title: "Untitled Playlist",
+        description: "",
+        username: "",
+        tags: "",
+        picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
+        songs: []
+      })
     }
   }
 
@@ -127,7 +136,8 @@ class PlaylistForm extends React.Component {
 
 
   deleteButton() {
-    if (currentUser.username === this.props.playlist.username) {
+
+    if (this.props.playlistOwner.id === this.props.playlist.user_id) {
       return (<a href="#" id="delete_playlist" onClick={this.handle_delete} className="flatbutton">Delete Playlist</a>)
     }
   }

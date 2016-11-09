@@ -7,7 +7,7 @@ class Nav extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = {username: "", password: "", activeTab: 1}
+    this.state = {username: "", password: ""}
   }
 
   update(field){
@@ -33,7 +33,7 @@ class Nav extends React.Component {
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <a className="navbar-brand" href="#" onClick={() => this.changeActiveTab(1)}>NineTracks</a>
+      <Link className="navbar-brand" to="/">NineTracks</Link>
     </div>
 
 
@@ -41,8 +41,8 @@ class Nav extends React.Component {
         <Search/>
       <ul className="nav navbar-nav navbar-right">
 
-        <li className={this.state.activeTab === 1 ? "active" : ""} onClick={() => this.changeActiveTab(1)}><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
-        <li className={this.state.activeTab === 2 ? "active" : ""} onClick={() => this.changeActiveTab(2)}><Link to="/feed">Feed</Link></li>
+        <li><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
+        <li><Link to="/feed">Feed</Link></li>
 
         <li className="dropdown">
           <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{ this.props.loggedIn ? this.props.currentUser.username : "Create Account"} <span className="caret"></span></a>

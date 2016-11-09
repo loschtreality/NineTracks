@@ -21,7 +21,7 @@ class Profile extends React.Component {
           <h2 className="playlist-line">{this.props.userDetails.username + "'s Playlists"}</h2>
           {
             this.props.userPlaylists.map((playlist) => {
-              return (<PlaylistSmall key={playlist.id} playlist={playlist}/>)
+              return (<PlaylistSmall key={playlist.id} playlist={playlist} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>)
             })
           }
         </div>

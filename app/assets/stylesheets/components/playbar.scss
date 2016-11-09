@@ -49,20 +49,26 @@
 }
 
 #playbar_title, #playbar_by, #playbar_artist {
-  font-size: 25px;
   padding: 0 5px;
-  color: $primary-color
 }
 
-#playbar_title {
+#playbar_pl_title {
+  font-size: 20px;
+  color: $primary-color;
+  margin-right: 15px;
+}
 
+
+#playbar_title {
+  font-size: 16px;
+  color: $secondary;
 }
 
 #playbar_by {
-  color: $secondary;
-  font-style: italic;
+  color: $primary-accent;
 }
 
 #playbar_artist {
-
+  font-size: 16px;
+  color: $secondary-accent;
 }

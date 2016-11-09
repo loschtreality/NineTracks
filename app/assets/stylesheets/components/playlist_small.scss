@@ -1,5 +1,4 @@
 .card {
-  width: 100%;
   background: $alt-background;
   color: $primary-grey;
   padding: 10px;
@@ -15,7 +14,6 @@
 }
 
 .half_card {
-  width: auto;
   float: none;
   margin: 0 -15px 20px -15px;
 }

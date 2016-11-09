@@ -11,33 +11,28 @@ class PlaylistFeed extends React.Component {
     this.props.fetchPlaylists()
   }
 
-  makeGrid(playlists) {
-    // let grid = []
-    //
-    //
-    //   for (var i = 0, j = i + 1; i < playlists.length; i+= 2) {
-    //     if (!playlists[j]) {
-    //       grid.push(
-    //         <div className="row step">,
-    //         <PlaylistSmall key={playlists[i].id} playlists=${playlists[i]}/>,
-    //         </div>
-    //       )
-    //     } else {
-    //       grid.push(
-    //         <div className="row step">,
-    //         <PlaylistSmall key={playlists[i].id} playlists=`${playlists[i]}/>,
-    //         <PlaylistSmall key={playlists[j].id} playlists=${playlists[j]}/>,
-    //         </div>
-    //       );
-    //     }
-    // }
-    // console.log(grid, "GRID");
-    // return grid;
-  }
 
 
 
   render () {
+    debugger
+    let grid = []
+      for (var i = 0, j = i + 1; i < this.props.playlists.length; i+= 2) {
+        if (this.props.playlists[j] === undefined) {
+          grid.push(
+            <div className="row step" key={i + j}>
+            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            </div>
+          )
+        } else {
+          grid.push(
+            <div className="row step" key={i + j}>
+            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.playlists[j].id} playlist={this.props.playlists[j]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            </div>
+          );
+        }
+    }
 
     if (this.props.playlists[1] === undefined) {
       return (<div>Loading...</div>)
@@ -47,9 +42,7 @@ class PlaylistFeed extends React.Component {
     return (
       <div className="container">
          {
-           this.props.playlists.map((playlist) => {
-             return (<PlaylistSmall givePlayBarPlaylist={this.props.givePlayBarPlaylist} user_id={playlist.user_id} key={playlist.id} playlist={playlist}/>)
-           })
+          grid
          }
       </div>
     );
@@ -58,3 +51,11 @@ class PlaylistFeed extends React.Component {
 }
 
 export default PlaylistFeed;
+
+
+
+
+
+//  this.props.playlists.map((playlist) => {
+//    return (<PlaylistSmall givePlayBarPlaylist={this.props.givePlayBarPlaylist} user_id={playlist.user_id} key={playlist.id} playlist={playlist}/>)
+//  })

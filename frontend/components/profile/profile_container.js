@@ -2,6 +2,7 @@ import {connect} from 'react-redux'
 import Profile from 'Profile'
 import {fetchUser} from 'UserActions'
 import {fetchPlaylists} from 'PlaylistActions'
+import {givePlayBarPlaylist} from 'PlayBarActions'
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -19,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: (user) => dispatch(fetchUser(user)),
-  fetchPlaylists: () => dispatch(fetchPlaylists())
+  fetchPlaylists: () => dispatch(fetchPlaylists()),
+  givePlayBarPlaylist: (playlist) => dispatch(givePlayBarPlaylist(playlist))
 })
 
 

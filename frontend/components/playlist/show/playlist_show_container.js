@@ -6,12 +6,15 @@ import PlaylistShow from 'PlaylistShow'
 const mapStateToProps = (state, ownProps) => {
   if (state.playlists[ownProps.params.id]) {
     return ({
-      playlist: state.playlists[ownProps.params.id]
+      playlist: state.playlists[ownProps.params.id],
+      loggedUser: state.session.currentUser
     })
   }
   return ({
-    playlist: state.playlists[0]
+    playlist: state.playlists[0],
+    loggedUser: state.session.currentUser
   })
+
 }
 
 const mapDispatchToProps = (dispatch) => ({

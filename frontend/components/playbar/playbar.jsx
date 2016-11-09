@@ -16,7 +16,7 @@ class PlayBar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(merge(this.state, nextProps.pb_playlist))
+    this.setState(merge({title: "", currentSong: 0, playing: false, progress: 0, showInfo: 'none', songs: [{title: "", artist: "", url: ""}]}, nextProps.pb_playlist))
     this.setState({showInfo: 'inline'})
     this.setState({playing: true})
   }
@@ -44,9 +44,9 @@ class PlayBar extends React.Component {
     if (this.state.songs[0] !== undefined) {
       return (
         <div className="col-md-4 col-sm-4 col-xs-4" id="center_controlls" >
-        <span id="playbar_pl_title" style={{color: "white", display: `${this.state.showInfo}`}}>{this.state.title}</span>
+        <span id="playbar_pl_title" style={{display: `${this.state.showInfo}`}}>{this.state.title}</span>
         <span id="playbar_title" >{this.state.songs[this.state.currentSong].title}</span>
-        <span style={{display: `${this.state.showInfo}`}} id="playbar_by">by</span>
+        <span style={{display: `${this.state.showInfo}`}} id="playbar_by">-</span>
         <span id="playbar_artist">{this.state.songs[this.state.currentSong].artist}</span>
       </div>
       )

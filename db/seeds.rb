@@ -20,7 +20,7 @@ User.create({
 Playlist.create({
   title: "Untitled Playlist",
   description: "",
-  picture_url: "",
+  picture_url: "http://res.cloudinary.com/loren-losch/video/upload/v1478376153/ctxdvbf1wzvbnhuojnr1.mp3",
   user_id: 2,
   username: ""
   })
@@ -28,13 +28,15 @@ Playlist.create({
 Song.create({
   title: "cigaretts in the theater",
   artist: "two door cinema club",
-  url: "http://res.cloudinary.com/loren-losch/video/upload/v1478376153/ctxdvbf1wzvbnhuojnr1.mp3"
+  url: "http://res.cloudinary.com/loren-losch/video/upload/v1478376153/ctxdvbf1wzvbnhuojnr1.mp3",
+  user_id: 2
   })
 
 Song.create({
   title: "side walks",
   artist: "story of the year",
-  url: "http://res.cloudinary.com/loren-losch/video/upload/v1478652956/SideWalks_Story_of_the_Year_ymhm1m.mp3"
+  url: "http://res.cloudinary.com/loren-losch/video/upload/v1478652956/SideWalks_Story_of_the_Year_ymhm1m.mp3",
+  user_id: 2
   })
 
   Playlist.create({

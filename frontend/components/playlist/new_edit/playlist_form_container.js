@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     playlist: (state.playlists[ownProps.params.id] ? state.playlists[ownProps.params.id] :  state.playlists[0]),
     type: (ownProps.params.id === undefined ? "new" : "edit"),
-    songs: state.songs
+    songs: state.songs,
+    playlistOwner: state.session.currentUser
   })
 }
 

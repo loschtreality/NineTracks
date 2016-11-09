@@ -7,7 +7,7 @@ class PlaylistShow extends React.Component {
   constructor(props) {
     super(props)
 
-    debugger
+
   }
 
   componentDidMount () {
@@ -16,7 +16,7 @@ class PlaylistShow extends React.Component {
 
   showOption() {
     let option;
-      if (window.currentUser.username === this.props.playlist.username) {
+      if (this.props.loggedUser.id === this.props.playlist.user_id) {
       option = (
           <div id="mix_buttons" className="interactbox">
             <Link id="edit_button" to={`playlists/${this.props.playlist.id}/edit`} className="flatbutton">
@@ -69,11 +69,7 @@ class PlaylistShow extends React.Component {
 
                       <div id="mix_description">
                         <div className="mix-data">
-                          <span>April 1, 2016</span>
-                          <span className="pipe">|</span>
                           <span>{this.props.playlist.songs.length} Tracks</span>
-                          <span className="pipe">|</span>
-                          <span>50 likes</span>
                         </div>
                         <div id="mix_tags_display">
                           {

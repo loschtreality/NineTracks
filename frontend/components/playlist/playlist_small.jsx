@@ -2,12 +2,9 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
 class PlaylistSmall extends React.Component {
-  constructor(props) {
-    super(props)
-
-  }
 
   render () {
+    debugger
     return (
       <div className="row step">
 

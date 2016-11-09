@@ -8,7 +8,7 @@ class Home extends React.Component {
     super(props)
   }
 
-  componentDidMount () {
+  componentWillMount () {
     this.props.fetchPlaylists()
   }
 
@@ -44,7 +44,7 @@ class Home extends React.Component {
               <div className="col-md-12">
                 {
                   this.props.playlists.map((playlist) => {
-                    return <PlaylistSmall key={playlist.id} playlist={playlist}/>
+                    return <PlaylistSmall key={playlist.id} playlist={playlist} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
                   })
                 }
               </div>
