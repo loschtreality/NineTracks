@@ -12,14 +12,16 @@ module.exports = {
     alias: {
       AppComponent: "frontend/components/app.jsx",
       AuthDrop: "frontend/components/navigation/auth_drop.jsx",
-      Cloud: "frontend/components/cloud/cloud.jsx",
       Home: "frontend/components/home/home.jsx",
       HomeContainer: "frontend/components/home/home_container.js",
       Nav: "frontend/components/navigation/nav.jsx",
       NavigationContainer: "frontend/components/navigation/navigation_container.js",
       PictureActions: "frontend/actions/picture_actions.js",
       PlayBar: "frontend/components/playbar/playbar.jsx",
+      PlayBarActions: "frontend/actions/playbar_actions.js",
+      PlayBarButton: "frontend/components/playbar/playbar_button.jsx",
       PlayBarContainer: "frontend/components/playbar/playbar_container.js",
+      PlayBarReducer: "frontend/reducers/playbar_reducer.js",
       PlaylistActions: "frontend/actions/playlist_actions.js",
       PlaylistComments: "frontend/components/playlist/show/playlist_comments.jsx",
       PlaylistDetails: "frontend/components/playlist/new_edit/playlist_details.jsx",
@@ -54,7 +56,7 @@ module.exports = {
       SongReducer: "frontend/reducers/song_reducer.js",
       SongUtils: "frontend/util/song_util.js",
       Store: "frontend/store/store.js",
-      UploadPicButton: "frontend/components/cloud/upload_pic_button.jsx"
+      UploadPicButton: "frontend/components/playlist/new_edit/upload_pic_button.jsx"
     },
     extensions: ['', '.js', '.jsx']
   },

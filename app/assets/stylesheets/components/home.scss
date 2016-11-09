@@ -12,15 +12,36 @@
   position: absolute;
   top: 15%;
   background: transparent;
-  color: white;
+  color: $primary-grey;
 }
 
 .banner-text {
   font-size: -webkit-xxx-large;
+  width: 100%;
+  background-color: white;
+  color: black;
 }
 
 .home-wrapper {
   padding-left: 0;
   padding-right: 0;
   overflow-x: hidden;
+}
+
+.title_music {
+  color: $alt-background;
+}
+
+.title_love {
+  color: $secondary
+}
+
+.quote_author {
+  color: $alt-background;
+}
+
+
+.sample_text {
+  font-size: 50px;
+  color: $alt-background;
 }

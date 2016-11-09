@@ -1,14 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {fetchPlaylist} from 'PlaylistActions'
 import PlayBar from 'PlayBar'
 
-const mapStateToProps = (state) => ({
-  playlist: {songs: ["dummy"]}
-})
+const mapStateToProps = (state) => {
+  return ({
+    pb_playlist: state.playbar
+  })
+}
+
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPlaylist: (playlist) => dispatch(fetchPlaylist(playlist))
+
 })
 
 

@@ -4,7 +4,9 @@ import { Link } from 'react-router'
 class PlaylistSmall extends React.Component {
   render () {
     return (
-      <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3 card mix_card half_card">
+      <div className="row step">
+
+      <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 card mix_card half_card">
 
         <div className="mini_header">
           <h4>Published by {this.props.playlist.username}</h4>
@@ -35,8 +37,16 @@ class PlaylistSmall extends React.Component {
 
           </div>
 
+          <div className="min_control step">
+            <div className="min_play">
+              <span className="glyphicon glyphicon-play min_play_button"></span>
+              <span className="min_button_description">Play Playlist</span>
+            </div>
+          </div>
+
         </div>
       </div>
+    </div>
     );
   }
 }

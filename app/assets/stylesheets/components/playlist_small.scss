@@ -51,7 +51,7 @@
 }
 
 .title_min {
-  color: black;
+  color: $secondary;
   font-weight: 900;
   font-size: 22px;
   line-height: 26px;
@@ -69,13 +69,39 @@
   min-height: 117px;
   overflow: hidden;
   transition: opacity 0.1s linear;
+  color: $primary-grey;
 }
 
 
 .tags {
-
-
   .tag {
     margin-top: 5px;
+
   }
+}
+
+
+.tag {
+  span {
+    color: $primary-accent;
+  }
+}
+
+
+.min_play_button {
+  margin-left: 10px;
+  font-size: 24px;
+  border: 1px solid $primary-grey;
+  padding: 7px 5px 8px 10px;
+  border-radius: 50%;
+}
+
+.min_play_button:hover {
+  color: $secondary;
+  cursor: pointer;
+  border: 1px solid $secondary;
+}
+
+.min_button_description {
+  margin-left: 10px;
 }

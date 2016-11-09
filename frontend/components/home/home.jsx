@@ -26,10 +26,10 @@ class Home extends React.Component {
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center banner-container">
               <div className="row step">
-                <h1 className="banner-text">Music is only love looking for words.</h1>
+                <h1 className="banner-text"><span className="title_music">Music</span> is only <span className="title_love">love</span> looking for <span className="title_words">words.</span></h1>
               </div>
               <div className="row step">
-                <h1><i>-Lawrence Durrell</i></h1>
+                <h1><i className="quote_author">-Lawrence Durrell</i></h1>
               </div>
               <div className="row step">
                 <Link to={`feed`} className="flatbutton">Discover</Link>
@@ -38,9 +38,9 @@ class Home extends React.Component {
           </div>
       </div>
       <div className="row step text-center">
-        <h2>Sample Our Library</h2>
+        <h2 className="sample_text">Sample Our Library</h2>
           <div className="container">
-            <div className="row step">
+            <div className="row step text-left">
               <div className="col-md-12">
                 {
                   this.props.playlists.map((playlist) => {

@@ -11,23 +11,27 @@ class PlaylistFeed extends React.Component {
   }
 
   makeGrid(playlists) {
-    let grid = [`<div className="row step">`];
-
-    for (var i = 0, j = i + 1; i < playlists.length; i++, j++) {
-      if (j % 3 === 0) {
-        grid.push(`<div className="row step">`,`<PlaylistSmall playlist=${playlists[i]}`);
-      } else if (i % 3 === 0) {
-        grid.push(`<PlaylistSmall playlist=${playlists[i]}`, `</div>`);
-      } else {
-        grid.push(`<PlaylistSmall playlist=${playlists[i]}`)
-      }
-    }
-
-    if (!(playlists.length % 3 === 0)) {
-      grid.push(`</div>`)
-     }
-     console.log(grid);
-    return grid;
+    // let grid = []
+    //
+    //
+    //   for (var i = 0, j = i + 1; i < playlists.length; i+= 2) {
+    //     if (!playlists[j]) {
+    //       grid.push(
+    //         <div className="row step">,
+    //         <PlaylistSmall key={playlists[i].id} playlists=${playlists[i]}/>,
+    //         </div>
+    //       )
+    //     } else {
+    //       grid.push(
+    //         <div className="row step">,
+    //         <PlaylistSmall key={playlists[i].id} playlists=`${playlists[i]}/>,
+    //         <PlaylistSmall key={playlists[j].id} playlists=${playlists[j]}/>,
+    //         </div>
+    //       );
+    //     }
+    // }
+    // console.log(grid, "GRID");
+    // return grid;
   }
 
   render () {
@@ -39,9 +43,11 @@ class PlaylistFeed extends React.Component {
 
     return (
       <div className="container">
-        {
-          this.makeGrid(this.props.playlists)
-        }
+         {
+           this.props.playlists.map((playlist) => {
+             return (<PlaylistSmall key={playlist.id} playlist={playlist}/>)
+           })
+         }
       </div>
     );
     }
@@ -51,8 +57,6 @@ class PlaylistFeed extends React.Component {
 export default PlaylistFeed;
 
 
-// {
-//   this.props.playlists.map((playlist, index) => {
-//     return <PlaylistSmall key={playlist.id} playlist={playlist}/>
-//   })
-// }
+// this.props.playlists.map((playlist) => {
+//   return (<PlaylistSmall key={playlist.id} playlist={playlist}/>)
+// })

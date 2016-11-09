@@ -6,35 +6,87 @@ import merge from 'lodash/merge'
 class PlayBar extends React.Component {
   constructor (props) {
     super(props)
+    this.state = merge({title: "", currentSong: 0, playing: false, progress: 0, showInfo: 'none', songs: [{title: "", artist: "", url: ""}]}, this.props.pb_playlist)
 
-    this.state = merge({currentSong: 0, playing: false, progress: "60%"}, this.props.playlist)
+    this.playSong = this.playSong.bind(this)
+    this.pauseSong = this.pauseSong.bind(this)
+    this.nextSong = this.nextSong.bind(this)
+    this.moveProgress = this.moveProgress.bind(this)
   }
 
-  play_song() {
-    this.setState({playing: true})
+  componentWillReceiveProps() {
+    this.setState({display: "inline"})
   }
 
-  pause_song() {
-    this.setState({playing: false})
+  playSong() {
+      this.setState({playing: true})
   }
 
-  next_song() {
+  pauseSong() {
+      this.setState({playing: false})
+  }
+
+  nextSong() {
     let nextSong = this.state.currentSong + 1
-    if (nextSong < this.state.playlist.songs.length) {
+    if (nextSong < this.state.songs.length) {
       this.setState({currentSong: nextSong})
-
     } else {
       this.setState({playing: false})
     }
+    this.setState({progress: 0})
+  }
+
+
+  displaySongInfo(){
+    if (this.state.songs[0] !== undefined) {
+      return (
+        <div className="col-md-4 col-sm-4 col-xs-4" id="center_controlls" >
+        <span id="playbar_pl_title">{this.state.title}</span>
+        <span id="playbar_title" >{this.state.songs[this.state.currentSong].title}</span>
+        <span style={{display: `${this.state.showInfo}`}} id="playbar_by">by</span>
+        <span id="playbar_artist">{this.state.songs[this.state.currentSong].artist}</span>
+      </div>
+      )
+    } else {
+      return (
+        <div className="col-md-4 col-sm-4 col-xs-4" id="center_controlls" >
+        <span id="playbar_title"></span>
+        <span id="playbar_by"></span>
+        <span id="playbar_artist"></span>
+      </div>
+      )
+    }
+  }
+
+
+  renderPlayer() {
+    if (this.state.songs) {
+      return (
+      <ReactPlayer
+        url={this.state.songs[this.state.currentSong].url}
+        playing={this.state.playing}
+        hidden={true}
+        onProgress={this.moveProgress}
+        onEnded={this.nextSong}
+         />
+     )
+   } else {
+     return (<span style={{display: "hidden"}}></span>)
+   }
+  }
+
+  moveProgress({played}) {
+    this.setState({progress: Math.round(played * 100)})
   }
 
 
   render () {
     const barStyle = {
-      width: this.state.progress,
+      width: `${this.state.progress}%`,
       background: "#528C94"
     };
-
+    console.log(this.state, "STATE FROM PLAYBAR");
+    console.log(this.props.pb_playlist, "PROPS PLAYBAR");
     return (
       <div id="playbar" className="" data-spy="affix" data-offset-bottom="0">
         <div id="player" className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -46,27 +98,20 @@ class PlayBar extends React.Component {
               <span id="next-icon" onClick={this.nextSong} className="glyphicon glyphicon-step-forward"></span>
             </div>
 
-            <div className="col-md-4 col-sm-4 col-xs-4" id="center_controlls" >
-              <span id="playbar_title">SideWalks</span>
-              <span id="playbar_by">by</span>
-              <span id="playbar_artist">Guns and Roses</span>
-            </div>
+            {
+              this.displaySongInfo()
+            }
 
             <div className="col-md-6 col-sm-6 col-xs-6" id="playbar_progress" id="right_controlls">
               <div className="progress">
-                <div className="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style={barStyle}>
-                  <span className="sr-only">60% Complete</span>
+                <div className="progress-bar" role="progressbar" aria-valuenow={`${this.state.progress}`} aria-valuemin="0" aria-valuemax="100" style={barStyle}>
                 </div>
               </div>
             </div>
 
-            <ReactPlayer
-              url={this.state.songs[this.state.currentSong].url}
-              playing={this.state.playing}
-              hidden={true}
-              onProgress={this.moveProgess}
-              onEnded={this.nextSong}
-               />
+            {
+              this.renderPlayer()
+            }
           </div>
         </div>
       </div>

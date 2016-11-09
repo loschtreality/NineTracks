@@ -93,16 +93,18 @@ class PlaylistForm extends React.Component {
 
 
   findSongs(query) {
+    let result;
     if (query === "") {
       this.setState({searchResults: []})
+    } else {
+      result = $.ajax({
+        url: `api/songs`,
+        method: "GET",
+        data: {query},
+        dataType: "json",
+        success: (searchResults) => this.setState({searchResults})
+      })
     }
-    let result = $.ajax({
-      url: `api/songs`,
-      method: "GET",
-      data: {query},
-      dataType: "json",
-      success: (searchResults) => this.setState({searchResults})
-    })
 
     return result;
   }

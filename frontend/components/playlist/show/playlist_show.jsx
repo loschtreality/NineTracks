@@ -23,11 +23,17 @@ class PlaylistShow extends React.Component {
           </div>
         )
       } else {
-          option = <span style={{display: "hidden"}}></span>
+          option = <span style={{display: "hidden"}}/>
       }
       return option
   }
 
+  handlePlay(play_list) {
+    return (e) => {
+      e.preventDefault()
+      this.props.givePlayBarPlaylist(play_list)
+    };
+  }
 
   componentWillReceiveProps() {
     this.showOption()
@@ -42,7 +48,6 @@ class PlaylistShow extends React.Component {
       )
 
     } else {
-      console.log(this.props.playlist, "PLAYLIST FROM SHOW");
 
     return (
       <div className='container-fluid show-content'>
@@ -78,6 +83,16 @@ class PlaylistShow extends React.Component {
                       </div>
 
                       {this.showOption()}
+
+
+                      <div className="min_control step">
+                        <div className="min_play">
+                          <span onClick={this.handlePlay(this.props.playlist)} className="glyphicon glyphicon-play min_play_button"></span>
+                          <span className="min_button_description">Play Playlist</span>
+                        </div>
+                      </div>
+
+
 
                   </div>
                 </div>
