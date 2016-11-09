@@ -4,12 +4,14 @@ import SessionReducer from 'SessionReducer';
 import PlaylistReducer from 'PlaylistReducer';
 import SongReducer from 'SongReducer';
 import PlayBarReducer from 'PlayBarReducer'
+import UserReducer from 'UserReducer'
 
 const RootReducer = combineReducers({
   session: SessionReducer,
   playlists: PlaylistReducer,
   songs: SongReducer,
-  playbar: PlayBarReducer
+  playbar: PlayBarReducer,
+  user: UserReducer
 });
 
 export default RootReducer;

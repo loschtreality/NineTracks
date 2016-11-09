@@ -1,0 +1,19 @@
+.profile-container {
+  overflow-x: hidden;
+}
+
+.profile-header {
+  min-height: 300px;
+  background: $secondary-accent
+}
+
+
+#profile-username {
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 30px;
+}
+
+.playlist-line {
+  font-size: 30px;
+}
