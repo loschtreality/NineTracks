@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 class PlaylistSmall extends React.Component {
 
   render () {
-    debugger
+
     return (
-      <div className="row step">
+
 
       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 card mix_card half_card">
 
@@ -48,7 +48,7 @@ class PlaylistSmall extends React.Component {
 
         </div>
       </div>
-    </div>
+
     );
   }
 }

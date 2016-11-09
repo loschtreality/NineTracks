@@ -6,6 +6,75 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+FactoryGirl.define do
+  sequence :title do |t|
+    "#{t}"
+  end
+
+  sequence :username do |un|
+    "#{un}"
+  end
+
+  sequence :tag do |tag|
+    "#{tag}"
+  end
+
+  factory :user, class: User do
+    username
+    password: "password"
+  end
+
+# Sequence makes sure that the values are unique. This avoids hitting the not null/unqiue constraint on the db
+  factory :playlist, class: Playlist do
+    title
+    description: ""
+    picture_url: "http://res.cloudinary.com/loren-losch/video/upload/v1478376153/ctxdvbf1wzvbnhuojnr1.mp3"
+    user_id: 0
+    username: ""
+  end
+
+  factory :tag, class: Tag do
+    title
+  end
+
+
+end
+
+
+(3..53).each do |n|
+  # Playlist
+  playlist_title = Faker::Superhero.name
+  img = Faker::Avatar.image("#{playlist_title}")
+  desc = Faker::Hipster.paragraph(3, false, 3)
+
+  #user
+  user_name = Faker::StarWars.character
+
+  #tags
+  3.times do
+    create(:tag, Faker::Hipster.word)
+  end
+
+  create(:user, username: username)
+  create(:playlist, title: playlist_title, description: desc, picture_url: img, user_id: n, username: user_name)
+
+end
+
+
+
+# x.times do create playlists
+# x.times do create users
+# x.times do create tags
+# (x * 3).times do create taggings at random with a playlist id and tag id
+
+# (num_songs.each id * 5) do create mixes with plalist id and song id
+
+# Faker::Superhero.name <-- Playlist title
+# Faker::Avatar.image("#{Faker::Name.first_name}") <--- Playlist Pics
+# Faker::StarWars.character <--- User names
+# Faker::Hipster.paragraph(3, false, 3) <--- Playlist Descriptions
+# Faker::Hipster.word <--- Tags
+# Faker::Number.between(1, 10) <--- Songs, Taggings
 
 User.create({
   username: "Demo",
@@ -39,61 +108,16 @@ Song.create({
   user_id: 2
   })
 
-  Playlist.create({
-    title: "Secondary Playlist",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
-    user_id: 2,
-    username: "Loren"
+Song.create({
+  title: "cancer",
+  artist: "twenty one pilots",
+  url: "http://res.cloudinary.com/loren-losch/video/upload/v1478728360/twenty_one_pilots-_Cancer_Cover_LYRIC_VIDEO_brf92l.mp3",
+  user_id: 2
   })
 
-
-  Playlist.create({
-    title: "Thirdinary Playlist",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
-    user_id: 2,
-    username: "Loren"
-  })
-  Playlist.create({
-    title: "Fourthenary Playlist",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
-    user_id: 2,
-    username: "Loren"
-  })
-  Playlist.create({
-    title: "Fifithenary Playlist",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
-    user_id: 2,
-    username: "Loren"
-  })
-  Playlist.create({
-    title: "Sixenary Playlist",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
-    user_id: 2,
-    username: "Loren"
-  })
-  Playlist.create({
-    title: "Seventh Playlist",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
-    user_id: 2,
-    username: "Loren"
-  })
-  Playlist.create({
-    title: "Eighth Playlist",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
-    user_id: 2,
-    username: "Loren"
-  })
-  Playlist.create({
-    title: "Nineth Playlist",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    picture_url: "http://res.cloudinary.com/loren-losch/image/upload/v1478461432/defaut_pic_zfnuk9.jpg",
-    user_id: 2,
-    username: "Loren"
+Song.create({
+  title: "car radio",
+  artist: "twenty one pilots",
+  url: "http://res.cloudinary.com/loren-losch/video/upload/v1478728353/Car_Radio_-_Twenty_One_Pilots_LYRICS_fgb7hs.mp3",
+  user_id: 2
   })
