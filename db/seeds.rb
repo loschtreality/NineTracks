@@ -1,3 +1,7 @@
+require 'factory_girl_rails'
+require 'faker'
+
+
 FactoryGirl.define do
 
   sequence :username do |un|
