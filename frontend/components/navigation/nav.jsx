@@ -38,7 +38,7 @@ class Nav extends React.Component {
 
 
     <div className="collapse navbar-collapse" id="navbar-collapse-1">
-        <Search/>
+        <Search searchTags={this.props.searchTags}/>
       <ul className="nav navbar-nav navbar-right">
 
         <li><Link to="/">Home <span className="sr-only">(current)</span></Link></li>
@@ -46,7 +46,7 @@ class Nav extends React.Component {
 
         <li className="dropdown">
           <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{ this.props.loggedIn ? this.props.currentUser.username : "Create Account"} <span className="caret"></span></a>
-            <AuthDrop currentUser={this.props.currentUser} login={this.props.login} logout={this.props.logout} searchTags={this.props.searchTags}/>
+            <AuthDrop currentUser={this.props.currentUser} login={this.props.login} logout={this.props.logout}/>
         </li>
       </ul>
     </div>

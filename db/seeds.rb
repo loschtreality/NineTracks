@@ -52,7 +52,62 @@ User.create({
 #   })
 
 
-(3..53).each do |n|
+  music_words = [
+    "Rock",
+    "Electronic",
+    "Dance",
+    "Metal",
+    "Gospel",
+    "Folk",
+    "Ambient",
+    "Chillwave",
+    "Dance",
+    "Deep House",
+    "Drumb & Bass",
+    "House",
+    "Dubstep",
+    "Indie",
+    "Pop",
+    "Psychedelic",
+    "Thrash",
+    "New Wave",
+    "Pop Punk",
+    "Emo",
+    "Bluegrass",
+    "Opara",
+    "Ballet",
+    "Alternative",
+    "Country",
+    "Hip hop",
+    "Rap",
+    "Reggaeton",
+    "Trap",
+    "Avant-Garde",
+    "Nu Metal",
+    "Suldge Metal",
+    "Noise Rock",
+    "Stadium Rock",
+    "Post-Punk",
+    "Shoegaze",
+    "Dream Pop",
+    "European Pop",
+    "K-Pop",
+    "Synth Pop",
+    "Humanitarian",
+    "Funk",
+    "Alternative Opera",
+    "Thrash Funk Rap",
+    "Nu House",
+    "Electronic Rock",
+    "Reggaeton Shoegaze",
+    "Advante-Garde Metal",
+    "Emo Wave",
+    "Psychedelic Gospel",
+    "Indie K-Pop"
+  ]
+
+
+(1..50).each do |n|
   # Playlist
   playlist_title = Faker::Book.title
   img = Faker::Avatar.image("#{playlist_title}")
@@ -61,21 +116,16 @@ User.create({
   #user
   user_name = "#{Faker::StarWars.character} #{Faker::Name.last_name}"
 
-  3.times do
-    begin
-      FactoryGirl.create(:tag, title: "#{Faker::Superhero.power} #{Faker::Hipster.word}")
-    rescue
-      retry
-    end
 
-
-  end
+  FactoryGirl.create(:tag, title: "#{music_words[n]} #{Faker::Music.instrument}")
+  FactoryGirl.create(:tag, title: "#{Faker::Hipster.word} #{music_words[n]}")
+  FactoryGirl.create(:tag, title: "#{music_words[n]} #{Faker::Space.constellation}")
 
   FactoryGirl.create(:user, username: user_name)
 
   FactoryGirl.create(:playlist, title: playlist_title, description: desc, picture_url: img, user_id: n, username: user_name)
 
-  FactoryGirl.create(:playlist, title: Faker::Space.nebula, description: Faker::Hipster.paragraph(3, false, 3), picture_url: Faker::Avatar.image("#{Faker::StarWars.character}"), user_id: n, username: user_name)
+  FactoryGirl.create(:playlist, title: "#{music_words[n]} #{Faker::Space.nebula}", description: Faker::Hipster.paragraph(3, false, 3), picture_url: Faker::Avatar.image("#{Faker::StarWars.character}"), user_id: n, username: user_name)
 
 
 end
@@ -490,7 +540,6 @@ Song.create({
 
 # Connect playlists with tags and songs
 Playlist.all.each do |pl|
-  (rand(1) + 2).times { Tagging.create(playlist_id: pl.id, tag_id: Tag.find_by_id(rand(152) + 1).id)}
-  (9).times { Mix.create(playlist_id: pl.id, song_id: Song.find_by_id(rand(55) + 1).id)}
-
+  (rand(1) + 2).times { Tagging.create!(playlist_id: pl.id, tag_id: Tag.find_by_id(rand(149) + 1).id)}
+  (9).times { Mix.create(playlist_id: pl.id, song_id: Song.find_by_id(rand(56) + 1).id)}
 end

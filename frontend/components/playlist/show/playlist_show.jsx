@@ -10,13 +10,15 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchPlaylist(this.props.params.id)
+    if (!this.props.playlist) {
+      this.props.fetchPlaylist(this.props.params.id)
+    }
   }
 
   showOption() {
 
     let option;
-      if (this.props.loggedUser.id === this.props.playlist.user_id) {
+      if (this.props.loggedUser && this.props.loggedUser.id === this.props.playlist.user_id) {
       option = (
           <div id="mix_buttons" className="interactbox">
             <Link id="edit_button" to={`playlists/${this.props.playlist.id}/edit`} className="flatbutton">
@@ -36,11 +38,6 @@ class PlaylistShow extends React.Component {
       this.props.givePlayBarPlaylist(play_list)
     };
   }
-
-  componentWillReceiveProps() {
-    this.showOption()
-  }
-
 
   render () {
 
@@ -73,8 +70,8 @@ class PlaylistShow extends React.Component {
                         </div>
                         <div id="mix_tags_display">
                           {
-                            this.props.playlist.tags.map((tag) => {
-                              return <a key={tag.id} className="tag">{tag.title}</a>
+                            this.props.playlist.tags.map((tag, idx) => {
+                              return <a key={idx} className="tag">{tag.title}</a>
                             })
                           }
                         </div>
@@ -106,6 +103,7 @@ class PlaylistShow extends React.Component {
       );
     }
   }
+
 }
 
 export default PlaylistShow;

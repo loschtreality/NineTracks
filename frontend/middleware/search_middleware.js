@@ -1,7 +1,7 @@
 import {
   receiveResults,
   SEARCH_TAGS
-} from 'SongActions'
+} from 'SearchActions'
 
 import {
   findPlaylists
@@ -14,7 +14,7 @@ const SearchMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case SEARCH_TAGS:
-      fetchSongs(action.tag_query, receiveResultsSuccess, e)
+      findPlaylists(action.tag_query, receiveResultsSuccess, e)
     return next(action);
     default:
       return next(action);

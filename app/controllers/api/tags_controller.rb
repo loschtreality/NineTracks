@@ -1,16 +1,20 @@
 class Api::TagsController < ApplicationController
 
   def index
-    @tags = Tag.all
+    # debugger
     if params[:tag_query] && !params[:tag_query].empty?
-      @tags = @tags.where(
-        [  "title LIKE :tag_search",
-          {tag_search: "%#{params[:tag_query]}%"}
+      @tags = Tag.all.where(
+        [  "title LIKE lower(:tag_search)",
+          {tag_search: "%#{params[:tag_query].downcase}%"}
         ]
       )
     end
-    # @playlists = @tags.playlists
+    @playlists = @tags.playlists
+    if @playlists.empty?
+      render []
+    else
     render "api/playlists/index"
+    end
   end
 
   def create
