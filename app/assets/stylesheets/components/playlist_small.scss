@@ -62,8 +62,13 @@
 }
 
 
+.mix_stats {
+  margin-top: 8px;
+}
+
 .tags {
-  min-height: 117px;
+  margin-top: 25px;
+  min-height: 100px;
   overflow: hidden;
   transition: opacity 0.1s linear;
   color: $primary-grey;

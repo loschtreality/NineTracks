@@ -540,6 +540,6 @@ Song.create({
 
 # Connect playlists with tags and songs
 Playlist.all.each do |pl|
-  (rand(1) + 2).times { Tagging.create!(playlist_id: pl.id, tag_id: Tag.find_by_id(rand(149) + 1).id)}
+  (rand(2) + 2).times { Tagging.create(playlist_id: pl.id, tag_id: Tag.find_by_id(rand(149) + 1).id)}
   (9).times { Mix.create(playlist_id: pl.id, song_id: Song.find_by_id(rand(56) + 1).id)}
 end

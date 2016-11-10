@@ -16,7 +16,7 @@ class PlaylistFeed extends React.Component {
 
   render () {
     let grid = []
-      for (var i = 0, j = i + 1; i < this.props.playlists.length; i+= 2, j += 2) {
+      for (var i = 1, j = i + 1; i < this.props.playlists.length; i+= 2, j += 2) {
         if (this.props.playlists[j] === undefined) {
 
           grid.push(
