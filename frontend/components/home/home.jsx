@@ -59,7 +59,7 @@ class Home extends React.Component {
           </div>
       </div>
       <div className="row step text-center">
-        <h2 className="sample_text">Sample Our Library</h2>
+        <h2 className="sample_text">Sample <i>Nine</i> of our Playlists</h2>
           <div className="container">
                 {
                   grid

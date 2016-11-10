@@ -4,7 +4,23 @@ import { Link } from 'react-router'
 class PlaylistSmall extends React.Component {
 
   render () {
-    console.log(this.props.playlist.id);
+
+    let some_tags = []
+    for (var i = 0; i < 3; i++) {
+      let tag = this.props.playlist.tags[i]
+        if (tag === undefined) {
+          break;
+        } else {
+          some_tags.push(
+            <a key={tag.id} onClick={(e) => e.preventDefault()} className="min_tag">
+              <span>{tag.title}</span>
+            </a>
+          )
+        }
+
+    }
+
+
     return (
       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 card mix_card half_card text-left">
 
@@ -26,17 +42,8 @@ class PlaylistSmall extends React.Component {
           </div>
           <div className="grid_tags tags step">
             {
-              this.props.playlist.tags.map((tag) => {
-                return (
-                  <a key={tag.id} onClick={(e) => e.preventDefault()} className="min_tag">
-                    <span>{tag.title}</span>
-                  </a>
-                )
-              })
+              some_tags
             }
-
-
-
           </div>
 
           <div className="min_play">

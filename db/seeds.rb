@@ -165,12 +165,6 @@ Song.create({
   user_id: 2
   })
 
-Song.create({
-  title: "palm of my hand",
-  artist: "zhu",
-  url: "http://res.cloudinary.com/loren-losch/video/upload/v1478752967/ZHU_-_Palm_of_My_Hand_Audio_uj2in7.mp3",
-  user_id: 2
-  })
 
 Song.create({
   title: "numb",
@@ -496,7 +490,7 @@ Song.create({
 
 # Connect playlists with tags and songs
 Playlist.all.each do |pl|
-  (rand(3) + 1).times { Tagging.create(playlist_id: pl.id, tag_id: Tag.find_by_id(rand(152) + 1).id)}
-  (rand(9) + 1).times { Mix.create(playlist_id: pl.id, song_id: Song.find_by_id(rand(59) + 1).id)}
+  (rand(1) + 2).times { Tagging.create(playlist_id: pl.id, tag_id: Tag.find_by_id(rand(152) + 1).id)}
+  (9).times { Mix.create(playlist_id: pl.id, song_id: Song.find_by_id(rand(55) + 1).id)}
 
 end
