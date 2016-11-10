@@ -9,13 +9,12 @@
 }
 
 .mix_card {
-  padding: 10px 10px 50px 10px;
   min-height: 275px;
 }
 
+
 .half_card {
-  float: none;
-  margin: 0 -15px 20px -15px;
+
 }
 
 .mini_header {
@@ -71,23 +70,29 @@
 }
 
 
-.tags {
-  .tag {
-    margin-top: 5px;
-
-  }
+.min_tag {
+  padding: 5px 5px;
+  margin: 0 8px 8px 0;
+  border: 1px solid #eee;
+  border-radius: 30px;
+  display: inline-block;
+  color: $faded-grey;
+  white-space: nowrap;
+  cursor: auto;
 }
 
 
 .tag {
   span {
     color: $primary-accent;
+    padding: 5px 5px;
   }
 }
 
 
 .min_play_button {
   margin-left: 10px;
+  margin-top: 5px;
   font-size: 24px;
   border: 1px solid $primary-grey;
   padding: 7px 5px 8px 10px;
@@ -102,4 +107,8 @@
 
 .min_button_description {
   margin-left: 10px;
+}
+
+.published {
+  color: $alt-background;
 }

@@ -18,14 +18,13 @@ class PlaylistFeed extends React.Component {
     let grid = []
       for (var i = 0, j = i + 1; i < this.props.playlists.length; i+= 2, j += 2) {
         if (this.props.playlists[j] === undefined) {
-          console.log("element is hit with J:", j, "i:", i);
+
           grid.push(
             <div className="row step" key={i + j}>
             <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           )
         } else {
-          console.log("TWO ELEMENTS", `I is ${i}`, `J is ${j}`);
           grid.push(
             <div className="row step" key={i + j}>
             <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>

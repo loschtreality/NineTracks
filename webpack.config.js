@@ -44,6 +44,7 @@ module.exports = {
       RootMiddleware: "frontend/middleware/root_middleware.js",
       Search: "frontend/components/search/search.jsx",
       SearchContainer: "frontend/components/search/search_component.js",
+      SearchResults: "frontend/components/search/search_results.jsx",
       SessionActions: "frontend/actions/session_actions.js",
       SessionForm: "frontend/components/session_form/session_form.jsx",
       SessionFormContainer: "frontend/components/session_form/session_form_container.js",

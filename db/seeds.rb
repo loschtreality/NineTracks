@@ -7,59 +7,31 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 FactoryGirl.define do
-  sequence :title do |t|
-    "#{t}"
-  end
 
   sequence :username do |un|
     "#{un}"
   end
 
-  sequence :tag do |tag|
-    "#{tag}"
-  end
-
-  factory :user, class: User do
+  factory :user do
     username
-    password: "password"
+    password "password"
   end
 
 # Sequence makes sure that the values are unique. This avoids hitting the not null/unqiue constraint on the db
-  factory :playlist, class: Playlist do
-    title
-    description: ""
-    picture_url: "http://res.cloudinary.com/loren-losch/video/upload/v1478376153/ctxdvbf1wzvbnhuojnr1.mp3"
-    user_id: 0
-    username: ""
+  factory :playlist do
+    sequence(:title) { |t| "#{t}"}
+    description ""
+    picture_url "http://res.cloudinary.com/loren-losch/video/upload/v1478376153/ctxdvbf1wzvbnhuojnr1.mp3"
+    user_id 0
+    username ""
   end
 
-  factory :tag, class: Tag do
-    title
+  factory :tag do
+    sequence(:title) { |tag_name| "#{tag_name}" }
   end
 
 
 end
-
-
-(3..53).each do |n|
-  # Playlist
-  playlist_title = Faker::Superhero.name
-  img = Faker::Avatar.image("#{playlist_title}")
-  desc = Faker::Hipster.paragraph(3, false, 3)
-
-  #user
-  user_name = Faker::StarWars.character
-
-  #tags
-  3.times do
-    create(:tag, Faker::Hipster.word)
-  end
-
-  create(:user, username: username)
-  create(:playlist, title: playlist_title, description: desc, picture_url: img, user_id: n, username: user_name)
-
-end
-
 
 
 # x.times do create playlists
@@ -86,13 +58,38 @@ User.create({
   password: "password"
   })
 
-Playlist.create({
-  title: "Untitled Playlist",
-  description: "",
-  picture_url: "http://res.cloudinary.com/loren-losch/video/upload/v1478376153/ctxdvbf1wzvbnhuojnr1.mp3",
-  user_id: 2,
-  username: ""
-  })
+# Playlist.create({
+#   title: "Untitled Playlist",
+#   description: "",
+#   picture_url: "http://res.cloudinary.com/loren-losch/video/upload/v1478376153/ctxdvbf1wzvbnhuojnr1.mp3",
+#   user_id: 2,
+#   username: ""
+#   })
+
+
+(1..53).each do |n|
+  # Playlist
+  playlist_title = Faker::Superhero.name
+  img = Faker::Avatar.image("#{playlist_title}")
+  desc = Faker::Hipster.paragraph(3, false, 3)
+
+  #user
+  user_name = "#{Faker::StarWars.character} #{Faker::Name.last_name}"
+
+  3.times do
+    begin
+      FactoryGirl.create(:tag, title: "#{Faker::Hipster.word} #{Faker::Hipster.word}")
+    rescue
+      retry
+    end
+
+
+  end
+
+  FactoryGirl.create(:user, username: user_name)
+  FactoryGirl.create(:playlist, title: playlist_title, description: desc, picture_url: img, user_id: n, username: user_name)
+
+end
 
 Song.create({
   title: "cigaretts in the theater",
@@ -121,3 +118,11 @@ Song.create({
   url: "http://res.cloudinary.com/loren-losch/video/upload/v1478728353/Car_Radio_-_Twenty_One_Pilots_LYRICS_fgb7hs.mp3",
   user_id: 2
   })
+
+
+# Connect playlists with tags and songs
+Playlist.all.each do |pl|
+  (rand(3) + 1).times { Tagging.create(playlist_id: pl.id, tag_id: Tag.find_by_id(rand(152) + 1).id)}
+  2.times { Mix.create(playlist_id: pl.id, song_id: Song.find_by_id(rand(3) + 1).id)}
+
+end

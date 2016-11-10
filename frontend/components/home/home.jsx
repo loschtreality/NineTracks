@@ -19,6 +19,27 @@ class Home extends React.Component {
       return (<div>Loading...</div>)
     }
 
+    let grid = []
+      for (var i = 0, j = i + 1; i < this.props.playlists.length; i+= 2, j += 2) {
+        if (this.props.playlists[j] === undefined) {
+
+          grid.push(
+            <div className="row step" key={i + j}>
+            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            </div>
+          )
+        } else {
+
+          grid.push(
+            <div className="row step" key={i + j}>
+            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.playlists[j].id} playlist={this.props.playlists[j]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            </div>
+          );
+        }
+    }
+
+
     return (
       <div className="container-fluid home-wrapper">
 
@@ -40,15 +61,9 @@ class Home extends React.Component {
       <div className="row step text-center">
         <h2 className="sample_text">Sample Our Library</h2>
           <div className="container">
-            <div className="row step text-left">
-              <div className="col-md-12">
                 {
-                  this.props.playlists.map((playlist) => {
-                    return <PlaylistSmall key={playlist.id} playlist={playlist} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
-                  })
+                  grid
                 }
-              </div>
-            </div>
           </div>
       </div>
     </div>

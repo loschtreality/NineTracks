@@ -1,16 +1,16 @@
 import { connect } from 'react-redux'
-import {fetchPlaylist, createPlaylist, updatePlaylist} from 'PlaylistActions'
-import Search from 'Search'
+import { givePlayBarPlaylist } from 'PlayBarActions'
+import SearchResults from 'SearchResults'
 
 const mapStateToProps = (state, ownProps) => ({
   songs: state.songs
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchSongs: (songs) => dispatch(fetchSongs(songs))
+  givePlayBarPlaylist = (playlist) => dispatch(givePlayBarPlaylist(playlist))
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Search)
+)(SearchResults)

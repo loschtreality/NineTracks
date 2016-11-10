@@ -15,6 +15,7 @@ class PlaylistShow extends React.Component {
   }
 
   showOption() {
+    debugger
     let option;
       if (this.props.loggedUser.id === this.props.playlist.user_id) {
       option = (

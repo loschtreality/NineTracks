@@ -4,14 +4,12 @@ import { Link } from 'react-router'
 class PlaylistSmall extends React.Component {
 
   render () {
-
+    console.log(this.props.playlist.id);
     return (
-
-
-      <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 card mix_card half_card">
+      <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 card mix_card half_card text-left">
 
         <div className="mini_header">
-          <h4>Published by <Link to={`users/${this.props.user_id}`}>{this.props.playlist.username}</Link></h4>
+          <h4>Published by <Link className="published" to={`users/${this.props.playlist.user_id}`}>{this.props.playlist.username}</Link></h4>
         </div>
 
         <div className="mix_element">
@@ -30,25 +28,24 @@ class PlaylistSmall extends React.Component {
             {
               this.props.playlist.tags.map((tag) => {
                 return (
-                  <a key={tag.id} href="#" className="tag">
+                  <a key={tag.id} onClick={(e) => e.preventDefault()} className="min_tag">
                     <span>{tag.title}</span>
                   </a>
                 )
               })
             }
 
+
+
           </div>
 
-          <div className="min_control step">
-            <div className="min_play">
-              <span onClick={() => this.props.givePlayBarPlaylist(this.props.playlist)} className="glyphicon glyphicon-play min_play_button"></span>
-              <span className="min_button_description">Play Playlist</span>
-            </div>
+          <div className="min_play">
+            <span onClick={() => this.props.givePlayBarPlaylist(this.props.playlist)} className="glyphicon glyphicon-play min_play_button"></span>
+            <span className="min_button_description">Play Playlist</span>
           </div>
 
         </div>
       </div>
-
     );
   }
 }

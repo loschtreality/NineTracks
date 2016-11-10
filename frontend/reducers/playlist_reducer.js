@@ -8,6 +8,7 @@ import merge from 'lodash/merge'
 
 const defaultState = {
   0: {
+    id: "0",
     title: "Untitled Playlist",
     description: "",
     username: "Charlie Lemon",

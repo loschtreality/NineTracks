@@ -10,7 +10,7 @@
 #
 
 class Mix < ApplicationRecord
-  validates :playlist, :song, presence: true
+  # validates :playlist_id, :song_id, presence: true
 
 
   belongs_to :playlist
