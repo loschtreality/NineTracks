@@ -46,7 +46,7 @@ class Nav extends React.Component {
 
         <li className="dropdown">
           <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{ this.props.loggedIn ? this.props.currentUser.username : "Create Account"} <span className="caret"></span></a>
-            <AuthDrop currentUser={this.props.currentUser} login={this.props.login} logout={this.props.logout}/>
+            <AuthDrop currentUser={this.props.currentUser} login={this.props.login} logout={this.props.logout} searchTags={this.props.searchTags}/>
         </li>
       </ul>
     </div>

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import PlaylistComments from 'PlaylistComments'
 import ShowSongs from 'ShowSongs'
 import { Link } from 'react-router'
 

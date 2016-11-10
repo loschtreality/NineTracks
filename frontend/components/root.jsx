@@ -9,6 +9,7 @@ import PlaylistFeedContainer from 'PlaylistFeedContainer'
 import PlaylistFormContainer from 'PlaylistFormContainer'
 import PlaylistShowContainer from 'PlaylistShowContainer'
 import ProfileContainer from 'ProfileContainer'
+import SearchResultsContainer from 'SearchResultsContainer'
 
 
 const Root = ({ store }) => (
@@ -22,6 +23,7 @@ const Root = ({ store }) => (
           <Route path="playlists/:id/edit" component={PlaylistFormContainer}/>
           <Route path="playlists/:id" component={PlaylistShowContainer}/>
           <Route path="users/:id" component={ProfileContainer}/>
+          <Route path="search" component={SearchResultsContainer}/>
         </Route>
       </Router>
 

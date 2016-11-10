@@ -20,13 +20,13 @@ class PlaylistFeed extends React.Component {
         if (this.props.playlists[j] === undefined) {
 
           grid.push(
-            <div className="row step" key={i + j}>
+            <div className="row step" key={`${i + j} row step`}>
             <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           )
         } else {
           grid.push(
-            <div className="row step" key={i + j}>
+            <div className="row step" key={`${i + j} row step`}>
             <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             <PlaylistSmall key={this.props.playlists[j].id} playlist={this.props.playlists[j]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>

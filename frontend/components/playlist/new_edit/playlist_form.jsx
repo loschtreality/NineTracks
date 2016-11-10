@@ -109,7 +109,7 @@ class PlaylistForm extends React.Component {
       result = $.ajax({
         url: `api/songs`,
         method: "GET",
-        data: {query},
+        data: {query: query.toLowerCase()},
         dataType: "json",
         success: (searchResults) => this.setState({searchResults})
       })
