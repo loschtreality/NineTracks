@@ -2,7 +2,7 @@
 
 View [NineTracks][website] Live
 
-[website]: https://www.nine-tracks.website
+[website]: https://nine-tracks.herokuapp.com/#/
 
 
 NineTracks is a full-stack web application inspired by 8Tracks. NineTracks was built using React.js in combination with Redux on the Front-End and Ruby on Rails on the Back-End. Postgreql is the database used for this project. The Bootstrap library was used to create the aesthetics of the page. Users may use the page without login, however if they would like to create their own playlists, they must have an account.
