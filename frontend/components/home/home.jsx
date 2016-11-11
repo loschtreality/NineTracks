@@ -8,6 +8,10 @@ class Home extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    $(window).scrollTop(0);
+  }
+
   componentWillMount () {
     this.props.fetchPlaylists()
   }

@@ -11,6 +11,7 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.params.id)
+    this.props.fetchPlaylists()
   }
 
   renderPlaylists() {

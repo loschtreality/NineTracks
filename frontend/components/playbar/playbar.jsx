@@ -43,7 +43,7 @@ class PlayBar extends React.Component {
   displaySongInfo(){
     if (this.state.songs[0] !== undefined) {
       return (
-        <div className="col-md-4 col-sm-4 col-xs-4" id="center_controlls" >
+        <div className="col-xl-6 col-lg-5 col-md-5 col-sm-5 col-xs-5" id="center_controlls" >
         <span id="playbar_pl_title" style={{display: `${this.state.showInfo}`}}>{this.state.title}</span>
         <span id="playbar_title" >{this.state.songs[this.state.currentSong].title}</span>
         <span style={{display: `${this.state.showInfo}`}} id="playbar_by">-</span>
@@ -52,7 +52,7 @@ class PlayBar extends React.Component {
       )
     } else {
       return (
-        <div className="col-md-4 col-sm-4 col-xs-4" id="center_controlls" >
+        <div className="col-xl-6 col-lg-5 col-md-5 col-sm-5 col-xs-5" id="center_controlls" >
         <span id="playbar_pl_title"></span>
         <span id="playbar_title"></span>
         <span id="playbar_by"></span>
@@ -94,7 +94,7 @@ class PlayBar extends React.Component {
         <div id="player" className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div className="row spacer">
 
-            <div className="col-md-2 col-sm-2 col-xs-2" id="left_controlls">
+            <div className="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2" id="left_controlls">
               <span id="play-icon" onClick={this.playSong} className="glyphicon glyphicon-play"></span>
               <span id="pause-icon" onClick={this.pauseSong} className="glyphicon glyphicon-pause"></span>
               <span id="next-icon" onClick={this.nextSong} className="glyphicon glyphicon-step-forward"></span>
@@ -104,7 +104,7 @@ class PlayBar extends React.Component {
               this.displaySongInfo()
             }
 
-            <div className="col-md-6 col-sm-6 col-xs-6" id="playbar_progress" id="right_controlls">
+            <div className="col-xl-6 col-lg-5 col-md-5 col-sm-5 col-xs-5" id="playbar_progress" id="right_controlls">
               <div className="progress">
                 <div className="progress-bar" role="progressbar" aria-valuenow={`${this.state.progress}`} aria-valuemin="0" aria-valuemax="100" style={barStyle}>
                 </div>

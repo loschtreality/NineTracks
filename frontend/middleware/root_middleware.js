@@ -3,7 +3,6 @@ import { applyMiddleware, compose } from 'redux';
 
 import SessionMiddleware from 'SessionMiddleware';
 import PlaylistMiddleware from 'PlaylistMiddleware';
-import SongMiddleware from 'SongMiddleware'
 import UserMiddleware from 'UserMiddleware'
 import SearchMiddleware from 'SearchMiddleware'
 
@@ -14,7 +13,6 @@ const RootMiddleware = composeEnhancers(
   applyMiddleware(
   SessionMiddleware,
   PlaylistMiddleware,
-  SongMiddleware,
   UserMiddleware,
   SearchMiddleware
 ));

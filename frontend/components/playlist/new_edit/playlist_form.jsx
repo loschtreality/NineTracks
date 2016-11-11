@@ -35,6 +35,7 @@ class PlaylistForm extends React.Component {
         songs: []
       })
     }
+      $(window).scrollTop(0);
   }
 
   componentWillReceiveProps(newProps) {
