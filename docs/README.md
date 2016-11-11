@@ -17,12 +17,12 @@ and sufficient CSS styling:
 
 - [x] Hosting on Heroku
 - [x] New account creation, login, and guest/demo login.
-- [ ] Play Bar which follows user navigation and continuously plays selected playlist.
-- [ ] Playlist creation, song uploading, playlist deletion. Playlists can be liked and commented on.
-- [ ] Search entirely by tags (everything is a tag).
-- [ ] Users ability to comment on, create, and destroy playlists.
-- [ ] User profile page
-- [ ] [Production README](../README.md)
+- [x] Play Bar which follows user navigation and continuously plays selected playlist.
+- [x] Playlist creation, playlist deletion
+- [x] Search entirely by tags (everything is a tag).
+- [x] Users ability to create, view, updated, and destroy playlists.
+- [x] User profile page
+- [x] [Production README](../README.md)
 
 ## Design Docs
 * [View Wireframes][wireframes]

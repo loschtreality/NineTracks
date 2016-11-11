@@ -25,23 +25,6 @@ FactoryGirl.define do
 
 end
 
-
-# Faker::Superhero.name <-- Playlist title
-# Faker::Avatar.image("#{Faker::Name.first_name}") <--- Playlist Pics
-# Faker::StarWars.character <--- User names
-# Faker::Hipster.paragraph(3, false, 3) <--- Playlist Descriptions
-# Faker::Hipster.word <--- Tags
-# Faker::Number.between(1, 10) <--- Songs, Taggings
-
-# Playlist.create({
-#   title: "Untitled Playlist",
-#   description: "",
-#   picture_url: "http://res.cloudinary.com/loren-losch/video/upload/v1478376153/ctxdvbf1wzvbnhuojnr1.mp3",
-#   user_id: 2,
-#   username: ""
-#   })
-
-
   music_words = [
     "Rock",
     "Electronic",
@@ -106,15 +89,18 @@ end
   #user
   user_name = "#{Faker::StarWars.character} #{Faker::Name.last_name}"
 
-
+  #creat tags
   FactoryGirl.create(:tag, title: "#{music_words[n]} #{Faker::Music.instrument}")
   FactoryGirl.create(:tag, title: "#{Faker::Hipster.word} #{music_words[n]}")
   FactoryGirl.create(:tag, title: "#{music_words[n]} #{Faker::Space.constellation}")
 
+  # create user
   FactoryGirl.create(:user, username: user_name)
 
+  # create playlist type A
   FactoryGirl.create(:playlist, title: playlist_title, description: desc, picture_url: img, user_id: n, username: user_name)
 
+  # create playlist type B
   FactoryGirl.create(:playlist, title: "#{music_words[n]} #{Faker::Space.nebula}", description: Faker::Hipster.paragraph(3, false, 3), picture_url: Faker::Avatar.image("#{Faker::StarWars.character}"), user_id: n, username: user_name)
 
 
@@ -180,12 +166,6 @@ Song.create({
   user_id: 52
   })
 
-Song.create({
-  title: "the judge",
-  artist: "twenty one pilots",
-  url: "https://cloudinary.com/console/media_library#/dialog/video/upload/the_judge_twenty_one_pilots_smkbu5",
-  user_id: 52
-  })
 
 Song.create({
   title: "lane boy",
@@ -541,5 +521,5 @@ Song.create({
 # Connect playlists with tags and songs
 Playlist.all.each do |pl|
   (rand(2) + 2).times { Tagging.create(playlist_id: pl.id, tag_id: Tag.find_by_id(rand(149) + 1).id)}
-  (9).times { Mix.create(playlist_id: pl.id, song_id: Song.find_by_id(rand(56) + 1).id)}
+  (9).times { Mix.create(playlist_id: pl.id, song_id: Song.find_by_id(rand(55) + 1).id)}
 end

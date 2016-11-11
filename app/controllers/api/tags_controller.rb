@@ -7,21 +7,25 @@ class Api::TagsController < ApplicationController
           {tag_search: "%#{params[:tag_query].downcase}%"}
         ]
       )
+      @pl_search = Playlist.all.where(
+        [  "lower(title) LIKE :tag_search",
+          {tag_search: "%#{params[:tag_query].downcase}%"}
+        ]
+      )
     end
 
-    unless @tags.empty?
+    if !@tags.empty?
       @playlists = @tags.map { |tag|
         tag.playlists
-      }.flatten.uniq
+      }.flatten.uniq.concat(@pl_search)
+    elsif !@pl_search.empty?
+      @playlists = @pl_search
     else
       @playlists = []
     end
 
-    if @playlists.empty?
-      render "api/playlists/index"
-    else
-    render "api/playlists/index"
-    end
+  render "api/playlists/index"
+
   end
 
   def create

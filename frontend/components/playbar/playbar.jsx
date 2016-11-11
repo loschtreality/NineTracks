@@ -7,7 +7,7 @@ class PlayBar extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = merge({title: "", currentSong: 0, playing: false, progress: 0, showInfo: 'none', songs: [{title: "", artist: "", url: ""}]}, this.props.pb_playlist)
+    this.state = merge({title: "", currentSong: 0, playing: false, progress: 0, showInfo: false, songs: [{title: "", artist: "", url: ""}]}, this.props.pb_playlist)
 
     this.playSong = this.playSong.bind(this)
     this.pauseSong = this.pauseSong.bind(this)
@@ -16,7 +16,7 @@ class PlayBar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(merge({title: "", currentSong: 0, playing: false, progress: 0, showInfo: 'none', songs: [{title: "", artist: "", url: ""}]}, nextProps.pb_playlist))
+    this.setState(merge({title: "", currentSong: 0, playing: false, progress: 0, showInfo: false, songs: [{title: "", artist: "", url: ""}]}, nextProps.pb_playlist))
     this.setState({showInfo: 'inline'})
     this.setState({playing: true})
   }
@@ -33,8 +33,10 @@ class PlayBar extends React.Component {
     let nextSong = this.state.currentSong + 1
     if (nextSong < this.state.songs.length) {
       this.setState({currentSong: nextSong})
+      this.setState({playing: true})
     } else {
       this.setState({playing: false})
+      this.setState({showInfo: false})
     }
     this.setState({progress: 0})
   }
@@ -44,10 +46,10 @@ class PlayBar extends React.Component {
     if (this.state.songs[0] !== undefined) {
       return (
         <div className="col-xl-6 col-lg-5 col-md-5 col-sm-5 col-xs-5" id="center_controlls" >
-        <span id="playbar_pl_title" style={{display: `${this.state.showInfo}`}}>{this.state.title}</span>
-        <span id="playbar_title" >{this.state.songs[this.state.currentSong].title}</span>
-        <span style={{display: `${this.state.showInfo}`}} id="playbar_by">-</span>
-        <span id="playbar_artist">{this.state.songs[this.state.currentSong].artist}</span>
+        <span id="playbar_pl_title" style={{display: (this.state.showInfo) ? "inline" : "none" }}>{this.state.title}</span>
+        <span id="playbar_title" style={{display: (this.state.showInfo) ? "inline" : "none" }}>{this.state.songs[this.state.currentSong].title}</span>
+        <span id="playbar_by" style={{display: (this.state.showInfo) ? "inline" : "none" }}>-</span>
+        <span id="playbar_artist" style={{display: (this.state.showInfo) ? "inline" : "none" }}>{this.state.songs[this.state.currentSong].artist}</span>
       </div>
       )
     } else {
@@ -95,8 +97,8 @@ class PlayBar extends React.Component {
           <div className="row spacer">
 
             <div className="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2" id="left_controlls">
-              <span id="play-icon" onClick={this.playSong} className="glyphicon glyphicon-play"></span>
-              <span id="pause-icon" onClick={this.pauseSong} className="glyphicon glyphicon-pause"></span>
+              <span id="play-icon" style={{color: (this.state.playing ? "#80DEEA" : "")}} onClick={this.playSong} className="glyphicon glyphicon-play"></span>
+              <span id="pause-icon" style={{color: ((!this.state.playing && this.state.showInfo) ? "#fafafa" : "")}} onClick={this.pauseSong} className="glyphicon glyphicon-pause"></span>
               <span id="next-icon" onClick={this.nextSong} className="glyphicon glyphicon-step-forward"></span>
             </div>
 
