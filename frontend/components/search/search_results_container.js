@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { givePlayBarPlaylist } from 'PlayBarActions'
+import { searchTags } from 'SearchActions'
 import SearchResults from 'SearchResults'
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  givePlayBarPlaylist: (playlist) => dispatch(givePlayBarPlaylist(playlist))
+  givePlayBarPlaylist: (playlist) => dispatch(givePlayBarPlaylist(playlist)),
+  searchTags: (query) => dispatch(searchTags(query))
 })
 
 export default connect(

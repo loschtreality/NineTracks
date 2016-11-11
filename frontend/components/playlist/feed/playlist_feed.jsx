@@ -22,14 +22,14 @@ class PlaylistFeed extends React.Component {
 
           grid.push(
             <div className="row step" key={`${i + j} row step`}>
-            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           )
         } else {
           grid.push(
             <div className="row step" key={`${i + j} row step`}>
-            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
-            <PlaylistSmall key={this.props.playlists[j].id} playlist={this.props.playlists[j]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.playlists[j].id} playlist={this.props.playlists[j]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           );
         }
@@ -41,7 +41,7 @@ class PlaylistFeed extends React.Component {
     } else {
 
     return (
-      <div className="container">
+      <div className="container" id="feed-container">
          {
           grid
          }

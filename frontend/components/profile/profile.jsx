@@ -11,15 +11,29 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.params.id)
-    this.props.fetchPlaylists()
   }
 
   renderPlaylists() {
-    return (
-      this.props.userPlaylists.map((playlist) => {
-      return (<PlaylistSmall key={playlist.id} playlist={playlist} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>)
-    })
-    )
+    let grid = []
+      for (var i = 0, j = i + 1; i < this.props.userPlaylists.length; i+= 2, j += 2) {
+        if (this.props.userPlaylists[j] === undefined) {
+
+          grid.push(
+            <div className="row step" key={`${i + j} row step`}>
+            <PlaylistSmall key={this.props.userPlaylists[i].id} playlist={this.props.userPlaylists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            </div>
+          )
+        } else {
+
+          grid.push(
+            <div className="row step" key={`${i + j} row step`}>
+            <PlaylistSmall key={this.props.userPlaylists[i].id} playlist={this.props.userPlaylists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.userPlaylists[j].id} playlist={this.props.userPlaylists[j]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            </div>
+          );
+        }
+    }
+    return grid
   }
 
   renderContent() {
@@ -49,9 +63,11 @@ class Profile extends React.Component {
         <div className="row step text-center">
           <h2 className="playlist-line">{this.props.userDetails.username + "'s Playlists"}</h2>
         </div>
-          {
-            this.renderContent()
-          }
+          <div className="container" id="profile-playlists-container">
+            {
+              this.renderContent()
+            }
+          </div>
       </div>
     );
   }

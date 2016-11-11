@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import {fetchPlaylists} from 'PlaylistActions'
 import {givePlayBarPlaylist} from 'PlayBarActions'
+import {searchTags} from 'SearchActions'
+import {hashHistory} from 'react-router'
 import Home from 'Home'
 
 const mapStateToProps = (state) => {
@@ -20,7 +22,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
-  givePlayBarPlaylist: (playlist) => dispatch(givePlayBarPlaylist(playlist))
+  givePlayBarPlaylist: (playlist) => dispatch(givePlayBarPlaylist(playlist)),
+  searchTags: (query) => {
+    dispatch(searchTags(query))
+    hashHistory.push("search")
+  }
 });
 
 export default connect(

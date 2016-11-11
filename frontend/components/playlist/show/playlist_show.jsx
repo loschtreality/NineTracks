@@ -72,7 +72,7 @@ class PlaylistShow extends React.Component {
                         <div id="mix_tags_display">
                           {
                             this.props.playlist.tags.map((tag, idx) => {
-                              return <a key={idx} className="tag">{tag.title}</a>
+                              return <a key={idx} onClick={ () => this.props.searchTags(tag.title) } className="tag">{tag.title}</a>
                             })
                           }
                         </div>
@@ -96,7 +96,7 @@ class PlaylistShow extends React.Component {
             </div>
           </div>
 
-          <div className="container step">
+          <div className="container step" id="show-songs-container">
             <ShowSongs songs={this.props.playlist.songs} username={this.props.playlist.username} user_id={this.props.playlist.user_id} description={this.props.playlist.description}/>
           </div>
 

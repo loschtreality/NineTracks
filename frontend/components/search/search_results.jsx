@@ -18,14 +18,14 @@ class SearchResults extends React.Component {
 
           grid.push(
             <div className="row step" key={`${i + j} row step`}>
-            <PlaylistSmall key={this.props.search_results[i].id} playlist={this.props.search_results[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.search_results[i].id} playlist={this.props.search_results[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           )
         } else {
           grid.push(
             <div className="row step" key={`${i + j} row step`}>
-            <PlaylistSmall key={this.props.search_results[i].id} playlist={this.props.search_results[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
-            <PlaylistSmall key={this.props.search_results[j].id} playlist={this.props.search_results[j]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.search_results[i].id} playlist={this.props.search_results[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.search_results[j].id} playlist={this.props.search_results[j]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           );
         }

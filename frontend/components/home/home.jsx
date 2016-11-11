@@ -25,15 +25,15 @@ class Home extends React.Component {
 
           grid.push(
             <div className="row step" key={`${i + j} row step`}>
-            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           )
         } else {
 
           grid.push(
             <div className="row step" key={`${i + j} row step`}>
-            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
-            <PlaylistSmall key={this.props.playlists[j].id} playlist={this.props.playlists[j]} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.playlists[j].id} playlist={this.props.playlists[j]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           );
         }
@@ -58,7 +58,7 @@ class Home extends React.Component {
             </div>
           </div>
       </div>
-      <div className="row step text-center">
+      <div className="row step text-center" id="sample-container">
         <h2 className="sample_text">Sample <i>Nine</i> of our Playlists</h2>
           <div className="container">
                 {

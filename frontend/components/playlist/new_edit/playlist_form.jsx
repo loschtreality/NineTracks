@@ -163,7 +163,7 @@ class PlaylistForm extends React.Component {
         <PlaylistDetails update={this.update} attributes={this.state} cloudUpdate={this.cloudUpdate}/>
 
 
-        <div className="row spacer">
+        <div className="row spacer" id="form-lower-container">
           <PlaylistSongList remove_track={this.remove_track} songs={this.state.songs}  update={this.update}/>
           <PlaylistSongSearch searchResults={this.state.searchResults} query={this.state.query} update={this.update} add_track={this.add_track}/>
         </div>

@@ -32,8 +32,16 @@
   display: inline;
 }
 
-#play-icon:hover, #pause-icon:hover, #next-icon:hover{
-  color: $secondary
+#play-icon:hover {
+  color: $primary-color;
+}
+
+#pause-icon:hover {
+  color: $primary-grey;
+}
+
+#next-icon:hover{
+  color: $secondary;
 }
 
 

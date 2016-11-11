@@ -12,8 +12,8 @@ class PlaylistSmall extends React.Component {
           break;
         } else {
           some_tags.push(
-            <a key={tag.id} onClick={(e) => e.preventDefault()} className="min_tag">
-              <span>{tag.title}</span>
+            <a key={tag.id} className="min_tag">
+              <span onClick={() => this.props.searchTags(`${tag.title}`)}>{tag.title}</span>
             </a>
           )
         }
