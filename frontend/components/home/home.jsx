@@ -16,7 +16,7 @@ class Home extends React.Component {
   render () {
 
     if (!this.props.playlists[0]) {
-      return (<div>Loading...</div>)
+      return (<div className="loader"></div>)
     }
 
     let grid = []

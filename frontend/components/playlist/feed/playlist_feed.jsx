@@ -9,6 +9,7 @@ class PlaylistFeed extends React.Component {
 
   componentDidMount () {
     this.props.fetchPlaylists()
+    $(window).scrollTop(0);
   }
 
 
@@ -35,7 +36,7 @@ class PlaylistFeed extends React.Component {
     }
 
     if (this.props.playlists[1] === undefined) {
-      return (<div>Loading...</div>)
+      return (<div className="loader"></div>)
 
     } else {
 
@@ -51,11 +52,3 @@ class PlaylistFeed extends React.Component {
 }
 
 export default PlaylistFeed;
-
-
-
-
-
-//  this.props.playlists.map((playlist) => {
-//    return (<PlaylistSmall givePlayBarPlaylist={this.props.givePlayBarPlaylist} user_id={playlist.user_id} key={playlist.id} playlist={playlist}/>)
-//  })

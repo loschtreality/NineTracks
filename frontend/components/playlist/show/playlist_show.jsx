@@ -13,6 +13,7 @@ class PlaylistShow extends React.Component {
     if (!this.props.playlist) {
       this.props.fetchPlaylist(this.props.params.id)
     }
+    $(window).scrollTop(0);
   }
 
   showOption() {
@@ -43,7 +44,7 @@ class PlaylistShow extends React.Component {
 
     if (this.props.playlist === undefined) {
       return (
-        <div className="loader">Loading...</div>
+        <div className="loader"></div>
       )
 
     } else {

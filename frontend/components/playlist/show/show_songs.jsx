@@ -26,9 +26,9 @@ class ShowSongs extends React.Component {
             <ul id="played_tracks">
 
             {
-              this.props.songs.map((song) => {
+              this.props.songs.map((song, idx) => {
                 return (
-                  <li key={song.id} className="played_track">
+                  <li key={`${song.id} ${idx}`} className="played_track">
                     <div className="track_details_container">
                       <div>
                         <div className="title_artist">

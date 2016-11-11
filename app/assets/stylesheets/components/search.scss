@@ -1,3 +1,9 @@
+#no_res_container {
+  height: 100vh;
+  background: url('http://res.cloudinary.com/loren-losch/image/upload/c_scale,w_1600/v1478823918/empty_stage_bwexod.jpg');
+
+}
+
 .search-box {
   border-radius: 19px;
   overflow: hidden;
@@ -13,4 +19,11 @@
 .search-input {
   min-width: 100%;
   border-radius: 0px;
+}
+
+.no_results {
+  margin-top: 15px;
+  color: $primary-accent;
+  font-size: 35px;
+  font-weight: 300;
 }
