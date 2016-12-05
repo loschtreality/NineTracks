@@ -6,6 +6,8 @@ import { Link } from 'react-router'
 class Home extends React.Component {
   constructor (props) {
     super(props)
+
+    this.specialLogin = this.specialLogin.bind(this)
   }
 
   componentDidMount() {
@@ -14,6 +16,11 @@ class Home extends React.Component {
 
   componentWillMount () {
     this.props.fetchPlaylists()
+  }
+
+
+  specialLogin() {
+      this.props.login({username:"Demo", password:"password"})
   }
 
 
@@ -58,6 +65,7 @@ class Home extends React.Component {
               </div>
               <div className="row step">
                 <Link to={`feed`} className="flatbutton">Discover</Link>
+                <button onClick={this.specialLogin} className="flatbutton demo-log">Demo</button>
               </div>
             </div>
           </div>

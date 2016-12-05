@@ -41,7 +41,8 @@ class Profile extends React.Component {
     if (this.props.userPlaylists.length > 0) {
 
       return (
-      <div className="row step">
+      <div className="row step text-center">
+        <Link className="flatbutton" to='new'>Create a playlist</Link>
           {this.renderPlaylists()}
       </div>
       )

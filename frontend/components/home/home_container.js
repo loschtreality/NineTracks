@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
+import {hashHistory} from 'react-router'
+
 import {fetchPlaylists} from 'PlaylistActions'
 import {givePlayBarPlaylist} from 'PlayBarActions'
 import {searchTags} from 'SearchActions'
-import {hashHistory} from 'react-router'
+import {login} from 'SessionActions'
+
 import Home from 'Home'
 
 const mapStateToProps = (state) => {
@@ -26,7 +29,8 @@ const mapDispatchToProps = (dispatch) => ({
   searchTags: (query) => {
     dispatch(searchTags(query))
     hashHistory.push("search")
-  }
+  },
+  login: (user) => dispatch(login(user))
 });
 
 export default connect(
