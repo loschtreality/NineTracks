@@ -13,8 +13,8 @@ const mapStateToProps = (state) => {
     return state.playlists[pl_id]
   })
   let state_prop = []
-  for (var i = 9, j = all_PL.length; i > 0; i--) {
-    state_prop.push(all_PL[j - i])
+  for (var i = 1, j = all_PL.length; i < 10; i++) {
+    state_prop.push(all_PL[i])
   }
 
   return ({
