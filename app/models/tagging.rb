@@ -9,8 +9,6 @@
 
 class Tagging < ApplicationRecord
   validates :playlist, :tag, presence: true
-  validates :tag_id, uniqueness: {scope: :playlist_id}
-
 
   belongs_to :playlist
   belongs_to :tag
