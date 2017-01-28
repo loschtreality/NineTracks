@@ -79,11 +79,30 @@ end
     "Indie K-Pop"
   ]
 
+  default_images = [
+    "http://res.cloudinary.com/loren-losch/image/upload/v1480540389/s5b2g9ttmyzgnxhmwfan.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1480540312/gcmtowtjrd1j2ggzlj5o.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1480540686/hubs5mpeomphfq4e9xid.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1480529652/fxpqnupu7mczqi63rosh.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1480378345/h0qqwvuw18nswgp1dcns.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1478471969/wwzyukkikoebnncurz1i.gif",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563361/space-photography-134_irlqsu.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563353/tumblr_n81tuuDttz1subvnlo1_500_hz2kyt.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563346/hipster-photography-tattoos-tumblr-Favim.com-3994799_ggpiv6.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563339/awesome-ballerina-hipster-photography-Favim.com-1449227_g9kcta.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563331/10-hipster-wedding-photographer_pwcpw5.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563322/cool-grunge-hipster-photography-Favim.com-1990728_pyboys.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563312/a061fb5a88dcf14d9726aaf067bfb079_py7mpy.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563302/hipster-865295_1280_cyy7v1.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563290/906_1ff_beach_lifestyle_photographer_los_angeles_advertising_photographer_la_edgy_raw_real_lifestyle_california_ii_nfsqdt.jpg",
+    "http://res.cloudinary.com/loren-losch/image/upload/v1485563273/5ac3af6e7fc5774999c9bb2d869e5932_u8vyet.jpg"
+  ]
+
 
 (1..50).each do |n|
   # Playlist
   playlist_title = Faker::Book.title
-  img = Faker::Avatar.image("#{playlist_title}")
+  img = default_images.sample
   desc = Faker::Hipster.paragraph(3, false, 3)
 
   #user
@@ -101,13 +120,13 @@ end
   FactoryGirl.create(:playlist, title: playlist_title, description: desc, picture_url: img, user_id: n, username: user_name)
 
   # create playlist type B
-  FactoryGirl.create(:playlist, title: "#{music_words[n]} #{Faker::Space.nebula}", description: Faker::Hipster.paragraph(3, false, 3), picture_url: Faker::Avatar.image("#{Faker::StarWars.character}"), user_id: n, username: user_name)
+  FactoryGirl.create(:playlist, title: "#{music_words[n]} #{Faker::Space.nebula}", description: Faker::Hipster.paragraph(3, false, 3), picture_url: default_images.sample, user_id: n, username: user_name)
 
 
 end
 
 User.create({
-  username: "Demo",
+  username: "omeD",
   password: "password"
   })
 

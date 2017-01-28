@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout, login } from 'SessionActions';
+import { logout, login, signup } from 'SessionActions';
 import {searchTags} from 'SearchActions'
 import Nav from 'Nav';
 
@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
   login: (user) => dispatch(login(user)),
+  signup: (user) => dispatch(signup(user)),
   searchTags: (query) => dispatch(searchTags(query))
 });
 

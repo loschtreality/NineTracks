@@ -1,6 +1,7 @@
 import React from 'react'
 import PlaylistSmall from 'PlaylistSmall'
 import { Link } from 'react-router'
+import { singup } from "SessionActions"
 
 
 class Home extends React.Component {
@@ -20,7 +21,8 @@ class Home extends React.Component {
 
 
   specialLogin() {
-      this.props.login({username:"Demo", password:"password"})
+      const epoch = new Date().getTime() % 10000
+      this.props.signup({username:`Demo_${epoch}`, password:"password"})
   }
 
 

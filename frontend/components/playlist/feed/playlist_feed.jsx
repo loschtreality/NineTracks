@@ -23,17 +23,18 @@ class PlaylistFeed extends React.Component {
     let grid = []
     let dead_end = (end > this.props.playlists.length ? this.props.playlists.length : end)
       for (var i = start, j = i + 1; i < dead_end; i+= 2, j += 2) {
+        const current_time = new Date().getTime()
         if (this.props.playlists[j] === undefined) {
           grid.push(
-            <div className="row step" key={`${(i + j) * dead_end} row step`}>
-            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <div className="row step" key={`${(i + current_time) * dead_end} row step`}>
+            <PlaylistSmall key={this.props.playlists[i].id + current_time} playlist={this.props.playlists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           )
         } else {
           grid.push(
-            <div className="row step" key={`${(i + j) * dead_end} row step`}>
-            <PlaylistSmall key={this.props.playlists[i].id} playlist={this.props.playlists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
-            <PlaylistSmall key={this.props.playlists[j].id} playlist={this.props.playlists[j]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <div className="row step" key={`${(current_time + j) * dead_end} row step`}>
+            <PlaylistSmall key={this.props.playlists[i].id + current_time} playlist={this.props.playlists[i]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
+            <PlaylistSmall key={this.props.playlists[j].id + current_time} playlist={this.props.playlists[j]} searchTags={this.props.searchTags} givePlayBarPlaylist={this.props.givePlayBarPlaylist}/>
             </div>
           );
         }

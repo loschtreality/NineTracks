@@ -34,7 +34,8 @@ class AuthDrop extends React.Component {
 
   specialLogin() {
     return () => {
-      this.props.login({username:"Demo", password:"password"})
+      const epoch = new Date().getTime() % 10000
+      this.props.signup({username:`Demo_${epoch}`, password:"password"})
     };
   }
 

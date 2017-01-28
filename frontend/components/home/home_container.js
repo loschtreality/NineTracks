@@ -4,7 +4,7 @@ import {hashHistory} from 'react-router'
 import {fetchPlaylists} from 'PlaylistActions'
 import {givePlayBarPlaylist} from 'PlayBarActions'
 import {searchTags} from 'SearchActions'
-import {login} from 'SessionActions'
+import {login, signup} from 'SessionActions'
 
 import Home from 'Home'
 
@@ -30,7 +30,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(searchTags(query))
     hashHistory.push("search")
   },
-  login: (user) => dispatch(login(user))
+  login: (user) => dispatch(login(user)),
+  signup: (user) => dispatch(signup(user))
 });
 
 export default connect(
