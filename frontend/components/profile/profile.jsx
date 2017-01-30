@@ -38,13 +38,21 @@ class Profile extends React.Component {
   }
 
   renderContent() {
-    if (this.props.userPlaylists.length > 0) {
+    if (this.props.currentUser && this.props.userPlaylists.length > 0) {
 
       return (
       <div className="row step text-center">
-        <Link className="flatbutton" to='new'>Create a playlist</Link>
+          <Link className="flatbutton" to='new'>Create a playlist</Link>
           {this.renderPlaylists()}
       </div>
+      )
+
+      // Render button if there is a current user. Throws error if no current user
+    } else if (this.props.userPlaylists.length > 0) {
+      return (
+        <div className="row step text-center">
+            {this.renderPlaylists()}
+        </div>
       )
     } else {
       return (

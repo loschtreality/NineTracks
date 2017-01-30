@@ -8,7 +8,7 @@ import {hashHistory} from 'react-router'
 
 const mapStateToProps = (state, ownProps) => {
 
-  let user_playlists = Object.keys(state.playlists).map((db_spot) => {
+  const user_playlists = Object.keys(state.playlists).map((db_spot) => {
     return state.playlists[db_spot]
   }).filter((play_list) => {
     return play_list.username === state.user.username
@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 
   return ({
     userDetails: state.user,
-    userPlaylists: user_playlists
+    userPlaylists: user_playlists,
+    currentUser: state.session.currentUser
   })
 }
 
